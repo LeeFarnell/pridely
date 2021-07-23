@@ -13,6 +13,11 @@ const businessUserSchema = {
     type: String,
     required: true,
   },
+  type: {
+    type: String,
+    enum: ["standard", "business"],
+    required: true,
+  },
   email: {
     type: String,
     required: true,
@@ -50,13 +55,32 @@ const businessUserSchema = {
     type: String,
     required: true,
   },
-  myPosts: [{ body: "Post", by: mongoose.Schema.Types.ObjectId }],
-  myReviews: [{ body: "Review", by: mongoose.Schema.Types.ObjectId }],
-  myRatings: [{ body: "Rating", by: mongoose.Schema.Types.ObjectId }],
+  rating: {
+    type: Number,
+    required: false,
+    default: 0,
+  },
+  ratings: {
+    type: Number,
+    required: false,
+    default: 0,
+  },
   age: { type: Number },
   gender: { type: String },
   identifyAs: { type: String, enum: ["a", "b", "c"] },
   pronouns: { type: String, enum: ["aa", "bb", "cc"] },
+  myPosts: {
+    type: Schema.Types.ObjectId,
+    ref: "Post",
+  },
+  myReviews: {
+    type: Schema.Types.ObjectId,
+    ref: "Review",
+  },
+  myFollowers: {
+    type: Schema.Types.ObjectId,
+    ref: "Follower",
+  },
 };
 
 const BusinessUserSchema = new Schema(businessUserSchema);

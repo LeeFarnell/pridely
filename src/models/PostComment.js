@@ -5,11 +5,11 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const postCommentSchema = {
-  likedBy: {
+  commentPostedBy: {
     type: String,
     required: true,
   },
-  postLiked: {
+  postId: {
     type: String,
     required: true,
   },

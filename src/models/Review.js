@@ -14,9 +14,9 @@ const reviewSchema = {
     enum: ["Service One", "Service Two"],
     required: true,
   },
-  // not sure what this is
-  serviceType: {
+  serviceSpecificRating: {
     type: String,
+    enum: ["Culture & Values", "Diversity & Inclusion", "Work/Life Balance"],
   },
   writtenBy: {
     type: String,

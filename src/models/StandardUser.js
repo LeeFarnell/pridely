@@ -13,6 +13,11 @@ const standardUserSchema = {
     type: String,
     required: true,
   },
+  type: {
+    type: String,
+    enum: ["standard", "business"],
+    required: true
+  },
   email: {
     type: String,
     required: true,

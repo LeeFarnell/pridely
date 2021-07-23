@@ -21,13 +21,25 @@ const postSchema = {
     type: String,
     required: true,
   },
-  comments: [{ body: "PostComments", by: mongoose.Schema.Types.ObjectId }],
-  likes: [{ body: "Likes", by: mongoose.Schema.Types.ObjectId }],
+  badges: {
+    type: String,
+    enum: ["link.of.badge.one", "link.of.badge.two"],
+  },
   url: {
     type: String,
   },
-  postedBy: { type: mongoose.Schema.Types.ObjectId, ref: "BusinessUser" },
-  badges: { type: String, enum: ["link.of.badge.one", "link.of.badge.two"] },
+  likes: {
+    type: Number,
+    default: 0,
+  },
+  comments: {
+    type: Schema.Types.ObjectId,
+    ref: "PostComment",
+  },
+  postedBy: {
+    type: Schema.Types.ObjectId,
+    ref: "BusinessUser",
+  },
 };
 
 const PostSchema = new Schema(postSchema);
