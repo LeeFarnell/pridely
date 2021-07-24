@@ -40,6 +40,10 @@ const postSchema = {
     type: Schema.Types.ObjectId,
     ref: "BusinessUser",
   },
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+  },
 };
 
 const PostSchema = new Schema(postSchema);

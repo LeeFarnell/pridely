@@ -16,7 +16,7 @@ const standardUserSchema = {
   type: {
     type: String,
     enum: ["standard", "business"],
-    required: true
+    required: true,
   },
   email: {
     type: String,
@@ -34,6 +34,10 @@ const standardUserSchema = {
   gender: { type: String },
   identifyAs: { type: String, enum: ["a", "b", "c"] },
   pronouns: { type: String, enum: ["aa", "bb", "cc"] },
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+  },
 };
 
 const StandardUserSchema = new Schema(standardUserSchema);

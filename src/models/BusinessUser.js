@@ -65,19 +65,23 @@ const businessUserSchema = {
     required: false,
     default: 0,
   },
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+  },
   age: { type: Number },
   gender: { type: String },
   identifyAs: { type: String, enum: ["a", "b", "c"] },
   pronouns: { type: String, enum: ["aa", "bb", "cc"] },
-  myPosts: {
+  posts: {
     type: Schema.Types.ObjectId,
     ref: "Post",
   },
-  myReviews: {
+  reviews: {
     type: Schema.Types.ObjectId,
     ref: "Review",
   },
-  myFollowers: {
+  followers: {
     type: Schema.Types.ObjectId,
     ref: "Follower",
   },
