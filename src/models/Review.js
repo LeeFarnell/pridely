@@ -14,9 +14,15 @@ const reviewSchema = {
     enum: ["Service One", "Service Two"],
     required: true,
   },
-  serviceSpecificRating: {
-    type: String,
-    enum: ["Culture & Values", "Diversity & Inclusion", "Work/Life Balance"],
+  cultureAndValues: {
+    type: Number,
+    enum: [0, 1, 2, 3, 4, 5],
+    default: 0,
+  },
+  diversityAndInclusion: {
+    type: Number,
+    enum: [0, 1, 2, 3, 4, 5],
+    default: 0,
   },
   writtenBy: {
     type: String,
