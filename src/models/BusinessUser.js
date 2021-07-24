@@ -69,18 +69,6 @@ const businessUserSchema = {
   gender: { type: String },
   identifyAs: { type: String, enum: ["a", "b", "c"] },
   pronouns: { type: String, enum: ["aa", "bb", "cc"] },
-  posts: {
-    type: Schema.Types.ObjectId,
-    ref: "Post",
-  },
-  reviews: {
-    type: Schema.Types.ObjectId,
-    ref: "Review",
-  },
-  followers: {
-    type: Schema.Types.ObjectId,
-    ref: "Follower",
-  },
 };
 
 const BusinessUserSchema = new Schema(businessUserSchema);

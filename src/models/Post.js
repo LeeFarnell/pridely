@@ -5,6 +5,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const postSchema = {
+  postedBy: {
+    type: String,
+    required: true,
+  },
   title: {
     type: String,
     required: true,
@@ -31,14 +35,6 @@ const postSchema = {
   likes: {
     type: Number,
     default: 0,
-  },
-  comments: {
-    type: Schema.Types.ObjectId,
-    ref: "PostComment",
-  },
-  postedBy: {
-    type: Schema.Types.ObjectId,
-    ref: "BusinessUser",
   },
   createdAt: {
     type: Date,
