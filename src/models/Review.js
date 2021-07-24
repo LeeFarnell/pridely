@@ -11,7 +11,7 @@ const reviewSchema = {
   },
   serviceUsed: {
     type: String,
-    enum: ["Service One", "Service Two"],
+    enum: ["Service One", "Service Two", "Service Three"],
     required: true,
   },
   cultureAndValues: {

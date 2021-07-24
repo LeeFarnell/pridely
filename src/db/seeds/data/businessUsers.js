@@ -18,7 +18,7 @@ const businessUsers = [
     gender: "male",
     identifyAs: "male",
     pronouns: "he/him",
-    createdAt,
+    createdAt: Date.now(),
   },
   {
     name: "Sam Smith",
@@ -39,7 +39,7 @@ const businessUsers = [
     gender: "female",
     identifyAs: "female",
     pronouns: "she/her",
-    createdAt,
+    createdAt: Date.now(),
   },
   {
     name: "Dave Derek",
@@ -60,7 +60,7 @@ const businessUsers = [
     gender: "non-binary",
     identifyAs: "non-binary",
     pronouns: "they/them",
-    createdAt,
+    createdAt: Date.now(),
   },
 ];
 

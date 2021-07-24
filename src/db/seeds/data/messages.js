@@ -4,7 +4,7 @@ const messages = [
     message: "I need a photographer for my wedding!",
     fromUser: "Alice Parker",
     toUser: "Peter Parker",
-    createdAt,
+    createdAt: Date.now(),
   },
 
   {
@@ -12,7 +12,7 @@ const messages = [
     message: "MakeUp artist help please",
     fromUser: "Jennitt Semore",
     toUser: "Dave Derek",
-    createdAt,
+    createdAt: Date.now(),
   },
 
   {
@@ -20,7 +20,7 @@ const messages = [
     message: "I need a driver",
     fromUser: "Steve McQueen",
     toUser: "Sam Smith",
-    createdAt,
+    createdAt: Date.now(),
   },
 ];
 

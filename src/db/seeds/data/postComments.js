@@ -1,15 +1,12 @@
 const postComments = [
   {
-    commentPostedBy: "Peter Parker",
-    createdAt,
+    createdAt: Date.now(),
   },
   {
-    commentPostedBy: "Alice Parker",
-    createdAt,
+    createdAt: Date.now(),
   },
   {
-    commentPostedBy: "Dave Derek",
-    createdAt,
+    createdAt: Date.now(),
   },
 ];
 

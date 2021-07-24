@@ -4,21 +4,21 @@ const reviews = [
     serviceUsed: "Service One",
     cultureAndValues: 3,
     diversityAndInclusion: 3,
-    createdAt,
+    createdAt: Date.now(),
   },
   {
     commentBox: "ReviewReview Review ReviewReview Review Review",
     serviceUsed: "Service Two",
     cultureAndValues: 2,
     diversityAndInclusion: 2,
-    createdAt,
+    createdAt: Date.now(),
   },
   {
     commentBox: "TextText Text TextText Text Text",
     serviceUsed: "Service Three",
     cultureAndValues: 4,
     diversityAndInclusion: 4,
-    createdAt,
+    createdAt: Date.now(),
   },
 ];
 

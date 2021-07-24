@@ -36,7 +36,7 @@ const businessUserSchema = {
   },
   businessType: {
     type: String,
-    enum: ["first type", "second type"],
+    enum: ["Type 1", "Type 2", "Type 3"],
     required: true,
   },
   businessDescription: {
@@ -44,7 +44,7 @@ const businessUserSchema = {
     required: true,
   },
   businessId: {
-    type: Number,
+    type: String,
     required: true,
   },
   socialMedia: {
@@ -63,12 +63,11 @@ const businessUserSchema = {
   },
   createdAt: {
     type: Date,
-    default: Date.now(),
   },
   age: { type: Number },
   gender: { type: String },
-  identifyAs: { type: String, enum: ["a", "b", "c"] },
-  pronouns: { type: String, enum: ["aa", "bb", "cc"] },
+  identifyAs: { type: String, enum: ["male", "female", "non-binary"] },
+  pronouns: { type: String, enum: ["he/him", "she/her", "they/them"] },
 };
 
 const BusinessUserSchema = new Schema(businessUserSchema);

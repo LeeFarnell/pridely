@@ -30,14 +30,13 @@ const standardUserSchema = {
     type: String,
     required: true,
   },
-  age: { type: Number },
-  gender: { type: String },
-  identifyAs: { type: String, enum: ["a", "b", "c"] },
-  pronouns: { type: String, enum: ["aa", "bb", "cc"] },
   createdAt: {
     type: Date,
-    default: Date.now(),
   },
+  age: { type: Number },
+  gender: { type: String },
+  identifyAs: { type: String, enum: ["male", "female", "non-binary"] },
+  pronouns: { type: String, enum: ["he/him", "she/her", "they/them"] },
 };
 
 const StandardUserSchema = new Schema(standardUserSchema);

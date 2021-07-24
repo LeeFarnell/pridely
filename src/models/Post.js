@@ -27,7 +27,10 @@ const postSchema = {
   },
   badges: {
     type: String,
-    enum: ["link.of.badge.one", "link.of.badge.two"],
+    enum: [
+      "https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=54&q=80",
+      "link.of.badge.two",
+    ],
   },
   url: {
     type: String,
