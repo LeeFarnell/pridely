@@ -43,10 +43,6 @@ const businessUserSchema = {
     type: String,
     required: true,
   },
-  rating: {
-    type: Number,
-    required: true,
-  },
   businessId: {
     type: Number,
     required: true,
