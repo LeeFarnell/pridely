@@ -5,6 +5,10 @@ const { DB_URL, MONGOOSE_OPTIONS } = require("../../config/config");
 
 // importing models and seed data
 const {
+  ReviewCategory,
+  BusinessType,
+  City,
+  Country,
   User,
   Follower,
   Post,

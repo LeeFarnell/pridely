@@ -5,14 +5,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const businessTypeSchema = {
-  businesses: [
-    {
-      name: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
+  name: {
+    type: String,
+    required: true,
+  },
 };
 
 const BusinessTypeSchema = new Schema(businessTypeSchema);

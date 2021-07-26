@@ -5,14 +5,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const citySchema = {
-  cities: [
-    {
-      name: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
+  name: {
+    type: String,
+    required: true,
+  },
 };
 
 const CitySchema = new Schema(citySchema);

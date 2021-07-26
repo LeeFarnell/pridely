@@ -5,14 +5,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const countrySchema = {
-  countries: [
-    {
-      name: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
+  name: {
+    type: String,
+    required: true,
+  },
 };
 
 const CountrySchema = new Schema(countrySchema);

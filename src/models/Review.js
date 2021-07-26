@@ -14,10 +14,17 @@ const reviewSchema = {
     enum: ["Service One", "Service Two", "Service Three"],
     required: true,
   },
-  categories: {
-    type: Schema.Types.ObjectId,
-    ref: "ReviewCategory",
-  },
+  categories: [
+    {
+      name:{
+        type:String
+      },
+      rating:{
+        type:Number,
+        default:0
+      }
+    }
+  ],
   writtenBy: {
     type: String,
     required: true,
