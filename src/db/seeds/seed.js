@@ -43,11 +43,12 @@ const init = async () => {
 
     const businessUsersFromDb = await BusinessUser.find({});
     const standardUsersFromDb = await StandardUser.find({});
+    const allUsers = [...businessUsersFromDb, ...standardUsersFromDb];
 
     const postsToSeed = postsData.map((post, index) => {
       return {
         ...post,
-        postedBy: businessUsersFromDb[index]._id,
+        postedBy: allUsers[Math.floor(Math.random() * allUsers.length)]._id,
       };
     });
 
@@ -60,8 +61,9 @@ const init = async () => {
     const commentsToSeed = postCommentsData.map((comment, index) => {
       return {
         ...comment,
-        commentPostedBy: businessUsersFromDb[index]._id,
-        postId: postsFromDb[index]._id,
+        commentPostedBy:
+          allUsers[Math.floor(Math.random() * allUsers.length)]._id,
+        postId: postsFromDb[Math.floor(Math.random() * postsFromDb.length)]._id,
       };
     });
 
@@ -72,8 +74,8 @@ const init = async () => {
     const followersToSeed = followersData.map((follower, index) => {
       return {
         ...follower,
-        followerId: standardUsersFromDb[index]._id,
-        businessId: businessUsersFromDb[index]._id,
+        followerId: allUsers[Math.floor(Math.random() * allUsers.length)]._id,
+        businessId: allUsers[Math.floor(Math.random() * allUsers.length)]._id,
       };
     });
 
@@ -84,8 +86,11 @@ const init = async () => {
     const reviewsToSeed = reviewsData.map((review, index) => {
       return {
         ...review,
-        writtenBy: standardUsersFromDb[index]._id,
-        writtenFor: businessUsersFromDb[index]._id,
+        writtenBy: allUsers[Math.floor(Math.random() * allUsers.length)]._id,
+        writtenFor:
+          businessUsersFromDb[
+            Math.floor(Math.random() * businessUsersFromDb.length)
+          ]._id,
       };
     });
 
@@ -96,8 +101,8 @@ const init = async () => {
     const messagesToSeed = messagesData.map((message, index) => {
       return {
         ...message,
-        writtenBy: standardUsersFromDb[index]._id,
-        writtenFor: businessUsersFromDb[index]._id,
+        fromUser: allUsers[Math.floor(Math.random() * allUsers.length)]._id,
+        toUser: allUsers[Math.floor(Math.random() * allUsers.length)]._id,
       };
     });
 
