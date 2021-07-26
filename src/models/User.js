@@ -20,6 +20,10 @@ const userSchema = {
   },
   email: {
     type: String,
+    match: [
+      /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/,
+      "Please enter a valid e-mail address",
+    ],
     required: true,
   },
   password: {
@@ -47,8 +51,7 @@ const userSchema = {
     required: true,
   },
   socialMedia: {
-    type: String,
-    required: true,
+    type: Array,
   },
   rating: {
     type: Number,
@@ -64,7 +67,7 @@ const userSchema = {
     type: Date,
   },
   age: { type: Number },
-  gender: { type: String },
+  gender: { type: String, enum: ["male", "female", "non-binary"] },
   identifyAs: { type: String, enum: ["male", "female", "non-binary"] },
   pronouns: { type: String, enum: ["he/him", "she/her", "they/them"] },
 };

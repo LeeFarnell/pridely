@@ -14,15 +14,9 @@ const reviewSchema = {
     enum: ["Service One", "Service Two", "Service Three"],
     required: true,
   },
-  cultureAndValues: {
-    type: Number,
-    enum: [0, 1, 2, 3, 4, 5],
-    default: 0,
-  },
-  diversityAndInclusion: {
-    type: Number,
-    enum: [0, 1, 2, 3, 4, 5],
-    default: 0,
+  categories: {
+    type: Schema.Types.ObjectId,
+    ref: "ReviewCategory",
   },
   writtenBy: {
     type: String,

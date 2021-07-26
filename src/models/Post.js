@@ -15,15 +15,15 @@ const postSchema = {
   },
   subtitle: {
     type: String,
-    required: true,
   },
   mainText: {
     type: String,
     required: true,
   },
   image: {
-    type: String,
-    required: true,
+    type: Array,
+    minItems: 0,
+    maxItems: 4,
   },
   badges: {
     type: String,
@@ -36,8 +36,7 @@ const postSchema = {
     type: String,
   },
   likes: {
-    type: Number,
-    default: 0,
+    type: Array,
   },
   createdAt: {
     type: Date,
