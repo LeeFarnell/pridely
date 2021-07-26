@@ -5,8 +5,7 @@ const { DB_URL, MONGOOSE_OPTIONS } = require("../../config/config");
 
 // importing models and seed data
 const {
-  StandardUser,
-  BusinessUser,
+  User,
   Follower,
   Post,
   Review,
@@ -14,20 +13,18 @@ const {
   Message,
 } = require("../../models");
 
-const businessUsersData = require("./data/businessUsers");
 const followersData = require("./data/followers");
 const messagesData = require("./data/messages");
 const postCommentsData = require("./data/postComments");
 const postsData = require("./data/posts");
 const reviewsData = require("./data/reviews");
-const standardUsersData = require("./data/standardUser");
+const usersData = require("./data/users");
 
 mongoose.connect(DB_URL, MONGOOSE_OPTIONS);
 
 const init = async () => {
   try {
-    await BusinessUser.deleteMany({});
-    await StandardUser.deleteMany({});
+    await User.deleteMany({});
     await Post.deleteMany({});
     await PostComment.deleteMany({});
     await Follower.deleteMany({});
@@ -36,19 +33,17 @@ const init = async () => {
 
     console.info("Data successfully deleted");
 
-    await BusinessUser.insertMany(businessUsersData);
-    await StandardUser.insertMany(standardUsersData);
+    await User.insertMany(usersData);
 
     console.info("Users successfully Seeded");
 
-    const businessUsersFromDb = await BusinessUser.find({});
-    const standardUsersFromDb = await StandardUser.find({});
-    const allUsers = [...businessUsersFromDb, ...standardUsersFromDb];
+    const usersFromDb = await User.find({});
 
     const postsToSeed = postsData.map((post, index) => {
       return {
         ...post,
-        postedBy: allUsers[Math.floor(Math.random() * allUsers.length)]._id,
+        postedBy:
+          usersFromDb[Math.floor(Math.random() * usersFromDb.length)]._id,
       };
     });
 
@@ -62,7 +57,7 @@ const init = async () => {
       return {
         ...comment,
         commentPostedBy:
-          allUsers[Math.floor(Math.random() * allUsers.length)]._id,
+          usersFromDb[Math.floor(Math.random() * usersFromDb.length)]._id,
         postId: postsFromDb[Math.floor(Math.random() * postsFromDb.length)]._id,
       };
     });
@@ -74,8 +69,10 @@ const init = async () => {
     const followersToSeed = followersData.map((follower, index) => {
       return {
         ...follower,
-        followerId: allUsers[Math.floor(Math.random() * allUsers.length)]._id,
-        businessId: allUsers[Math.floor(Math.random() * allUsers.length)]._id,
+        followerId:
+          usersFromDb[Math.floor(Math.random() * usersFromDb.length)]._id,
+        businessId:
+          usersFromDb[Math.floor(Math.random() * usersFromDb.length)]._id,
       };
     });
 
@@ -86,11 +83,10 @@ const init = async () => {
     const reviewsToSeed = reviewsData.map((review, index) => {
       return {
         ...review,
-        writtenBy: allUsers[Math.floor(Math.random() * allUsers.length)]._id,
+        writtenBy:
+          usersFromDb[Math.floor(Math.random() * usersFromDb.length)]._id,
         writtenFor:
-          businessUsersFromDb[
-            Math.floor(Math.random() * businessUsersFromDb.length)
-          ]._id,
+          usersFromDb[Math.floor(Math.random() * usersFromDb.length)]._id,
       };
     });
 
@@ -101,8 +97,9 @@ const init = async () => {
     const messagesToSeed = messagesData.map((message, index) => {
       return {
         ...message,
-        fromUser: allUsers[Math.floor(Math.random() * allUsers.length)]._id,
-        toUser: allUsers[Math.floor(Math.random() * allUsers.length)]._id,
+        fromUser:
+          usersFromDb[Math.floor(Math.random() * usersFromDb.length)]._id,
+        toUser: usersFromDb[Math.floor(Math.random() * usersFromDb.length)]._id,
       };
     });
 

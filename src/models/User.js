@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 // creating a new Schema
 const Schema = mongoose.Schema;
 
-const standardUserSchema = {
+const userSchema = {
   name: {
     type: String,
     required: true,
@@ -30,6 +30,37 @@ const standardUserSchema = {
     type: String,
     required: true,
   },
+  businessName: {
+    type: String,
+    required: true,
+  },
+  businessType: {
+    type: String,
+    enum: ["Type 1", "Type 2", "Type 3"],
+    required: true,
+  },
+  businessDescription: {
+    type: String,
+    required: true,
+  },
+  businessId: {
+    type: String,
+    required: true,
+  },
+  socialMedia: {
+    type: String,
+    required: true,
+  },
+  rating: {
+    type: Number,
+    required: false,
+    default: 0,
+  },
+  ratings: {
+    type: Number,
+    required: false,
+    default: 0,
+  },
   createdAt: {
     type: Date,
   },
@@ -39,8 +70,8 @@ const standardUserSchema = {
   pronouns: { type: String, enum: ["he/him", "she/her", "they/them"] },
 };
 
-const StandardUserSchema = new Schema(standardUserSchema);
+const UserSchema = new Schema(userSchema);
 
-const StandardUser = mongoose.model("StandardUser", StandardUserSchema);
+const User = mongoose.model("User", UserSchema);
 
-module.exports = StandardUser;
+module.exports = User;
