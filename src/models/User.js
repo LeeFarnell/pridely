@@ -26,24 +26,23 @@ const userSchema = {
     type: String,
     required: true,
   },
-  location: {
-    type: String,
-    required: true,
+  city: {
+    type: Schema.Types.ObjectId,
+    // required: true,
+  },
+  country: {
+    type: Schema.Types.ObjectId,
+    // required: true,
   },
   businessName: {
     type: String,
     required: true,
   },
-  businessType: {
-    type: String,
-    enum: ["Type 1", "Type 2", "Type 3"],
-    required: true,
-  },
+  // businessType: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: "BusinessType",
+  // },
   businessDescription: {
-    type: String,
-    required: true,
-  },
-  businessId: {
     type: String,
     required: true,
   },

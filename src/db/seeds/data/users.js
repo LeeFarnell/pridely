@@ -7,7 +7,7 @@ const users = [
     password: "p123",
     location: "Birmingham",
     businessName: "Peter Business",
-    businessType: "Type 1",
+    // businessType: "Type 1",
     businessDescription:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     businessId: "abc123",
@@ -28,7 +28,7 @@ const users = [
     password: "p123",
     location: "Manchester",
     businessName: "Sam Business",
-    businessType: "Type 2",
+    // businessType: "Type 2",
     businessDescription:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     businessId: "abcd123",
@@ -49,7 +49,7 @@ const users = [
     password: "p123",
     location: "London",
     businessName: "Derek Business",
-    businessType: "Type 3",
+    // businessType: "Type 3",
     businessDescription:
       "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
     businessId: "abc1234",
