@@ -7,10 +7,8 @@ const Message = require("./Message");
 const BusinessType = require("./BusinessType");
 const City = require("./City");
 const Country = require("./Country");
-const ReviewCategory = require("./ReviewCategory");
 
 module.exports = {
-  ReviewCategory,
   BusinessType,
   City,
   Country,

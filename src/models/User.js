@@ -40,15 +40,13 @@ const userSchema = {
   },
   businessName: {
     type: String,
-    required: true,
   },
-  // businessType: {
-  //   type: Schema.Types.ObjectId,
-  //   ref: "BusinessType",
-  // },
+  businessType: {
+    type: Schema.Types.ObjectId,
+    ref: "BusinessType",
+  },
   businessDescription: {
     type: String,
-    required: true,
   },
   socialMedia: {
     type: Array,

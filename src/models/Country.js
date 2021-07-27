@@ -9,6 +9,10 @@ const countrySchema = {
     type: String,
     required: true,
   },
+  unicodeFlag: {
+    type: String,
+    required: true,
+  },
 };
 
 const CountrySchema = new Schema(countrySchema);
