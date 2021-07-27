@@ -37,7 +37,7 @@ const init = async () => {
       url: "https://countriesnow.space/api/v0.1/countries/flag/unicode",
     };
 
-    // storing the respone into a variable
+    // storing the response into a variable
     const countriesResponse = await axios(countriesConfig);
     const countriesData = countriesResponse.data.data;
 

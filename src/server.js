@@ -1,35 +1,18 @@
-const mongoose = require("mongoose");
-const express = require("express");
-const cors = require("cors");
+const { ApolloServer } = require("apollo-server");
 
-const { DB_URL, MONGOOSE_OPTIONS } = require("./config/config");
-const logger = require("./middleware/logger");
+const db = require("./config/config");
 
-// assigning a port
-const PORT = process.env.PORT || 3000;
+const resolvers = require("./resolvers");
+const typeDefs = require("./schema");
 
-// creating express application
-const app = express();
-
-// middleware
-app.use(cors());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(express.static("public"));
-app.use(logger);
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+});
 
 // this function will run the server
-const init = async () => {
-  try {
-    app.listen(PORT, () =>
-      console.info(`\nServer running on http://localhost:${PORT}\n`)
-    );
-
-    mongoose.connect(DB_URL, MONGOOSE_OPTIONS);
-  } catch (error) {
-    console.info(error);
-    console.error("Failed to connect to DB");
-  }
-};
-
-init();
+db.once("open", () => {
+  server.listen().then(({ url }) => {
+    console.log(`🚀  Server ready at ${url}`);
+  });
+});
