@@ -1,6 +1,8 @@
 // importing dependencies
 const mongoose = require("mongoose");
 
+const { hashPassword, validatePassword } = require("../utils/auth");
+
 // creating a new Schema
 const Schema = mongoose.Schema;
 
@@ -25,6 +27,7 @@ const userSchema = {
       "Please enter a valid e-mail address",
     ],
     required: true,
+    unique: true,
   },
   password: {
     type: String,
@@ -71,6 +74,10 @@ const userSchema = {
 };
 
 const UserSchema = new Schema(userSchema);
+
+UserSchema.pre("save", hashPassword);
+
+UserSchema.methods.validatePassword = validatePassword;
 
 const User = mongoose.model("User", UserSchema);
 
