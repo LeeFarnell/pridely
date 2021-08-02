@@ -1,9 +1,9 @@
 const User = `type User {
-  id: ID
-  name: String
-  username: String
-  type: String
-  email: String
+  id: ID!
+  name: String!
+  username: String!
+  type: String!
+  email: String!
   password: String
   city: String
   country: String
