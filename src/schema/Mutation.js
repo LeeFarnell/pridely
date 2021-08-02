@@ -39,11 +39,21 @@ const Mutation = gql`
     pronouns: String
   }
 
+  input EditPostInput {
+    title: String!
+    subtitle: String!
+    mainText: String!
+    image: [String]
+    badges: [String]
+    url: String
+  }
+
   type Mutation {
     login(input: LoginInput): Auth
     signup(input: SignupInput): Auth
     editUser(input: EditUserInput): Auth
     deleteUser: Auth
+    editPost(input: EditPostInput): Post
   }
 `;
 

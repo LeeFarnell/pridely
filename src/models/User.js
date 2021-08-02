@@ -35,10 +35,12 @@ const userSchema = {
   },
   city: {
     type: Schema.Types.ObjectId,
+    ref: "City",
     // required: true,
   },
   country: {
     type: Schema.Types.ObjectId,
+    ref: "Country",
     // required: true,
   },
   businessName: {

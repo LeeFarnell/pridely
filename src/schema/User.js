@@ -5,10 +5,10 @@ const User = `type User {
   type: String!
   email: String!
   password: String
-  city: String
-  country: String
+  city: [String]
+  country: [String]
   businessName: String
-  businessType: String
+  businessType: [String]
   businessDescription: String
   socialMedia: String
   rating: Int

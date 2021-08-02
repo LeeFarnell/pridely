@@ -1,7 +1,7 @@
 const { User } = require("../models");
 const tokenise = require("../utils/tokenise");
 
-const editUser = async (_, { userId, input }) => {
+const editUser = async (_, { input }) => {
   const {
     name,
     username,
@@ -19,7 +19,7 @@ const editUser = async (_, { userId, input }) => {
   } = input;
 
   const user = await User.findByIdAndUpdate(
-    "6107fb24cb460159b45a7214",
+    "61082fd546c13a67d0edebfe",
     {
       $set: {
         name,
@@ -39,8 +39,6 @@ const editUser = async (_, { userId, input }) => {
     },
     { new: true }
   );
-
-  console.log(user);
 
   const token = tokenise({
     id: user.id,
