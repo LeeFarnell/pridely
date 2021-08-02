@@ -22,7 +22,7 @@ const login = async (_, { input }) => {
     );
   }
 
-  const userToTokenize = {
+  const userToTokenise = {
     id: user.id,
     username: user.username,
     type: user.type,
@@ -32,7 +32,7 @@ const login = async (_, { input }) => {
     createdAt: user.createdAt,
   };
 
-  const token = tokenise(userToTokenize);
+  const token = tokenise(userToTokenise);
 
   return { token, user };
 };

@@ -1,4 +1,7 @@
+const { AuthenticationError } = require("apollo-server");
+
 const { User } = require("../models");
+const tokenise = require("../utils/tokenise");
 
 const signup = async (_, { input }) => {
   const {
@@ -35,7 +38,17 @@ const signup = async (_, { input }) => {
     pronouns,
   });
 
-  return { user };
+  const token = tokenise({
+    id: user.id,
+    username: user.username,
+    type: user.type,
+    email: user.email,
+    country: user.country,
+    city: user.city,
+    createdAt: user.createdAt,
+  });
+
+  return { token, user };
 };
 
 module.exports = signup;
