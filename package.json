@@ -1,0 +1,37 @@
+{
+  "name": "pridely",
+  "version": "1.0.0",
+  "description": "## Title",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "seed": "node src/db/seeds/seed.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LeeFarnell/pridely.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LeeFarnell/pridely/issues"
+  },
+  "homepage": "https://github.com/LeeFarnell/pridely#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  },
+  "dependencies": {
+    "apollo-server": "^3.0.2",
+    "axios": "^0.21.1",
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "graphql": "^15.5.1",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mongodb": "^4.0.0",
+    "mongoose": "^5.13.3"
+  }
+}
