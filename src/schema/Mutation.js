@@ -23,9 +23,27 @@ const Mutation = gql`
     pronouns: String
   }
 
+  input EditUserInput {
+    name: String!
+    username: String!
+    type: String!
+    country: String
+    city: String
+    businessName: String
+    businessDescription: String
+    businessType: String
+    socialMedia: String
+    age: Int
+    gender: String
+    identifyAs: String
+    pronouns: String
+  }
+
   type Mutation {
     login(input: LoginInput): Auth
     signup(input: SignupInput): Auth
+    editUser(input: EditUserInput): Auth
+    deleteUser: Auth
   }
 `;
 
