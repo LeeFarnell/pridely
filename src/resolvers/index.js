@@ -4,16 +4,23 @@ const signup = require("./signup");
 const users = require("./users");
 const editUser = require("./editUser");
 const deleteUser = require("./deleteUser");
-const post = require("./post");
-const posts = require("./posts");
+const allPostsFromUser = require("./allPostsFromUser");
+const allPosts = require("./allPosts");
 const editPost = require("./editPost");
+const createPost = require("./createPost");
+const allCommentsForPost = require("./allCommentsForPost");
+const deletePost = require("./deletePost");
+const createComment = require("./createComment");
+const editComment = require("./editComment");
+const deleteComment = require("./deleteComment");
 
 const resolvers = {
   Query: {
     user,
     users,
-    post,
-    posts,
+    allPostsFromUser,
+    allPosts,
+    allCommentsForPost,
   },
   Mutation: {
     login,
@@ -21,6 +28,11 @@ const resolvers = {
     editUser,
     deleteUser,
     editPost,
+    createPost,
+    deletePost,
+    createComment,
+    editComment,
+    deleteComment,
   },
 };
 

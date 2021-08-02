@@ -48,12 +48,37 @@ const Mutation = gql`
     url: String
   }
 
+  input CreatePostInput {
+    postedBy: String!
+    title: String!
+    subtitle: String!
+    mainText: String!
+    image: [String]
+    badges: [String]
+    url: String
+  }
+
+  input CreateCommentInput {
+    commentPostedBy: String!
+    commentText: String!
+    postId: String!
+  }
+
+  input EditCommentInput {
+    commentText: String!
+  }
+
   type Mutation {
     login(input: LoginInput): Auth
     signup(input: SignupInput): Auth
     editUser(input: EditUserInput): Auth
     deleteUser: Auth
+    createPost(input: CreatePostInput): Post
     editPost(input: EditPostInput): Post
+    deletePost: Post
+    createComment(input: CreateCommentInput): Comment
+    editComment(input: EditCommentInput): Comment
+    deleteComment: Comment
   }
 `;
 

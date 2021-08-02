@@ -9,6 +9,10 @@ const postCommentSchema = {
     type: String,
     required: true,
   },
+  commentText: {
+    type: String,
+    required: true,
+  },
   postId: {
     type: String,
     required: true,

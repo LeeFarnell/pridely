@@ -1,8 +1,9 @@
 const Query = `type Query {
   user: User
   users: [User]
-  post: Post
-  posts: [Post]
+  allPostsFromUser: [Post]
+  allPosts: [Post]
+  allCommentsForPost: [Comment]
 }`;
 
 module.exports = Query;
