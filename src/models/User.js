@@ -17,7 +17,7 @@ const userSchema = {
   },
   type: {
     type: String,
-    enum: ["standard", "business"],
+    enum: ["Standard", "Business"],
     required: true,
   },
   email: {
@@ -55,6 +55,10 @@ const userSchema = {
   },
   socialMedia: {
     type: Array,
+  },
+  profilePicture: {
+    type: String,
+    required: true,
   },
   rating: {
     type: Number,

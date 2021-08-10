@@ -17,6 +17,7 @@ const Mutation = gql`
     businessName: String
     businessType: String
     socialMedia: String
+    profilePicture: String
     age: Int
     gender: String
     identifyAs: String

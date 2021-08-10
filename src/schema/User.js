@@ -4,6 +4,7 @@ const User = `type User {
   username: String!
   type: String!
   email: String!
+  profilePicture: String!
   password: String
   city: [String]
   country: [String]
