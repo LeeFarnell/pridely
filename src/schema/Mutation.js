@@ -69,6 +69,15 @@ const Mutation = gql`
     commentText: String!
   }
 
+  input addRatingToUserInput {
+    ratings: Int!
+  }
+
+  input createMessageInput {
+    title: String!
+    message: String!
+  }
+
   type Mutation {
     login(input: LoginInput): Auth
     signup(input: SignupInput): Auth
@@ -80,6 +89,8 @@ const Mutation = gql`
     createComment(input: CreateCommentInput): Comment
     editComment(input: EditCommentInput): Comment
     deleteComment: Comment
+    addRatingToUser(input: addRatingToUserInput): Auth
+    createMessage(input: createMessageInput): Message
   }
 `;
 

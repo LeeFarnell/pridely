@@ -13,11 +13,11 @@ const messageSchema = {
     type: String,
     required: true,
   },
-  fromUser: {
+  currentUser: {
     type: String,
     required: true,
   },
-  toUser: {
+  targetedUser: {
     type: String,
     required: true,
   },

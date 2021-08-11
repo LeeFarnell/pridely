@@ -14,6 +14,7 @@ const createComment = require("./createComment");
 const editComment = require("./editComment");
 const deleteComment = require("./deleteComment");
 const addRatingToUser = require("./addRatingToUser");
+const getMessages = require("./getMessages");
 
 const resolvers = {
   Query: {
@@ -22,6 +23,7 @@ const resolvers = {
     allPostsFromUser,
     allPosts,
     allCommentsForPost,
+    getMessages,
   },
   Mutation: {
     login,
