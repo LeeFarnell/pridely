@@ -12,8 +12,7 @@ const User = `type User {
   businessType: [String]
   businessDescription: String
   socialMedia: String
-  rating: Int
-  ratings: Int
+  ratings: [Int]
   createdAt: String
   age: Int
   gender: String

@@ -13,6 +13,7 @@ const deletePost = require("./deletePost");
 const createComment = require("./createComment");
 const editComment = require("./editComment");
 const deleteComment = require("./deleteComment");
+const addRatingToUser = require("./addRatingToUser");
 
 const resolvers = {
   Query: {
@@ -33,6 +34,7 @@ const resolvers = {
     createComment,
     editComment,
     deleteComment,
+    addRatingToUser,
   },
 };
 

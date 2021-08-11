@@ -33,15 +33,13 @@ const userSchema = {
     type: String,
     required: true,
   },
-  city: {
-    type: Schema.Types.ObjectId,
-    ref: "City",
-    // required: true,
-  },
   country: {
-    type: Schema.Types.ObjectId,
-    ref: "Country",
-    // required: true,
+    type: String,
+    required: true,
+  },
+  city: {
+    type: String,
+    required: true,
   },
   businessName: {
     type: String,
@@ -60,15 +58,14 @@ const userSchema = {
     type: String,
     required: true,
   },
-  rating: {
-    type: Number,
-    required: false,
-    default: 0,
-  },
+  // rating: {
+  //   type: Number,
+  //   required: false,
+  //   default: 0,
+  // },
   ratings: {
-    type: Number,
+    type: Array,
     required: false,
-    default: 0,
   },
   createdAt: {
     type: Date,
