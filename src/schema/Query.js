@@ -5,6 +5,7 @@ const Query = `type Query {
   allPosts: [Post]
   allCommentsForPost: [Comment]
   getMessages: [Message]
+  getReviews: [Review]
 }`;
 
 module.exports = Query;
