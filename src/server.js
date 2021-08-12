@@ -1,10 +1,13 @@
 const { ApolloServer } = require("apollo-server");
+const mongoose = require("mongoose");
 
-const db = require("./config/config");
-
+const { DB_URL, MONGOOSE_OPTIONS } = require("./config/config");
 const resolvers = require("./resolvers");
 const typeDefs = require("./schema");
 const context = require("./context");
+
+mongoose.connect(DB_URL, MONGOOSE_OPTIONS);
+const db = mongoose.connection;
 
 const server = new ApolloServer({
   typeDefs,
