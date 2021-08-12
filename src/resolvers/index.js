@@ -15,6 +15,8 @@ const editComment = require("./editComment");
 const deleteComment = require("./deleteComment");
 const addRatingToUser = require("./addRatingToUser");
 const getMessages = require("./getMessages");
+const createMessage = require("./createMessage");
+const deleteMessages = require("./deleteMessages");
 
 const resolvers = {
   Query: {
@@ -37,6 +39,8 @@ const resolvers = {
     editComment,
     deleteComment,
     addRatingToUser,
+    createMessage,
+    deleteMessages,
   },
 };
 
