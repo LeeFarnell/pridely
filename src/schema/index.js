@@ -4,7 +4,8 @@ const Query = require("./Query");
 const User = require("./User");
 const Post = require("./Post");
 const Comment = require("./Comment");
+const Message = require("./Message");
 
-const typeDefs = [Query, User, Post, Comment, Auth, Mutation];
+const typeDefs = [Query, User, Post, Comment, Auth, Message, Mutation];
 
 module.exports = typeDefs;

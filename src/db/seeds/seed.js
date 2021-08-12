@@ -119,9 +119,10 @@ const init = async () => {
     const messagesToSeed = messagesData.map((message, index) => {
       return {
         ...message,
-        fromUser:
+        currentUser:
           usersFromDb[Math.floor(Math.random() * usersFromDb.length)]._id,
-        toUser: usersFromDb[Math.floor(Math.random() * usersFromDb.length)]._id,
+        targetedUser:
+          usersFromDb[Math.floor(Math.random() * usersFromDb.length)]._id,
       };
     });
 

@@ -4,10 +4,12 @@ const db = require("./config/config");
 
 const resolvers = require("./resolvers");
 const typeDefs = require("./schema");
+const context = require("./context");
 
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  context,
 });
 
 // this function will run the server

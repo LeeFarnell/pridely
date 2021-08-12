@@ -7,7 +7,7 @@ const editUser = async (_, { input }) => {
     username,
     type,
     country,
-    city,
+    region,
     businessName,
     businessDescription,
     businessType,
@@ -26,7 +26,7 @@ const editUser = async (_, { input }) => {
         username,
         type,
         country,
-        city,
+        region,
         businessName,
         businessDescription,
         businessType,
@@ -46,7 +46,7 @@ const editUser = async (_, { input }) => {
     type: user.type,
     email: user.email,
     country: user.country,
-    city: user.city,
+    region: user.region,
     createdAt: user.createdAt,
   });
 

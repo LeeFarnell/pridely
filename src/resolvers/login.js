@@ -1,7 +1,7 @@
 const { AuthenticationError } = require("apollo-server");
 
 const { User } = require("../models");
-const tokenise = require("../utils/tokenise");
+const { tokenise } = require("../utils/tokenise");
 
 const login = async (_, { input }) => {
   const { email, password } = input;
@@ -22,17 +22,15 @@ const login = async (_, { input }) => {
     );
   }
 
-  const userToTokenise = {
+  const token = tokenise({
     id: user.id,
     username: user.username,
     type: user.type,
     email: user.email,
     country: user.country,
-    city: user.city,
+    region: user.region,
     createdAt: user.createdAt,
-  };
-
-  const token = tokenise(userToTokenise);
+  });
 
   return { token, user };
 };

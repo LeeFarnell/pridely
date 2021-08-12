@@ -4,15 +4,15 @@ const User = `type User {
   username: String!
   type: String!
   email: String!
+  profilePicture: String!
   password: String
-  city: [String]
-  country: [String]
+  region: String
+  country: String
   businessName: String
-  businessType: [String]
+  businessType: String
   businessDescription: String
   socialMedia: String
-  rating: Int
-  ratings: Int
+  ratings: [Int]
   createdAt: String
   age: Int
   gender: String
