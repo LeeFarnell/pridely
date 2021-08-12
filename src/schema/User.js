@@ -6,10 +6,10 @@ const User = `type User {
   email: String!
   profilePicture: String!
   password: String
-  city: [String]
-  country: [String]
+  region: String
+  country: String
   businessName: String
-  businessType: [String]
+  businessType: String
   businessDescription: String
   socialMedia: String
   ratings: [Int]

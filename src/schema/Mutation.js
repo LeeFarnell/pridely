@@ -12,8 +12,8 @@ const Mutation = gql`
     type: String!
     email: String!
     password: String!
-    country: String
-    city: String
+    country: String!
+    region: String!
     businessName: String
     businessType: String
     socialMedia: String
@@ -29,7 +29,7 @@ const Mutation = gql`
     username: String!
     type: String!
     country: String
-    city: String
+    region: String
     businessName: String
     businessDescription: String
     businessType: String
@@ -82,15 +82,16 @@ const Mutation = gql`
     login(input: LoginInput): Auth
     signup(input: SignupInput): Auth
     editUser(input: EditUserInput): Auth
-    deleteUser: Auth
+    deleteUser(userId: ID!): Auth
     createPost(input: CreatePostInput): Post
     editPost(input: EditPostInput): Post
-    deletePost: Post
+    deletePost(postId: ID!): Post
     createComment(input: CreateCommentInput): Comment
     editComment(input: EditCommentInput): Comment
-    deleteComment: Comment
+    deleteComment(commentId: ID!): Comment
     addRatingToUser(input: addRatingToUserInput): Auth
     createMessage(input: createMessageInput): Message
+    deleteMessages: Message
   }
 `;
 

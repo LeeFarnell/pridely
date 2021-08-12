@@ -28,7 +28,7 @@ const login = async (_, { input }) => {
     type: user.type,
     email: user.email,
     country: user.country,
-    city: user.city,
+    region: user.region,
     createdAt: user.createdAt,
   });
 

@@ -6,7 +6,7 @@ const users = [
     email: "peterparker@email.com",
     password: "p123",
     country: "United Kingdom",
-    city: "Birmingham",
+    region: "Birmingham",
     profilePicture: "http://www.url.com",
     businessName: "Peter Business",
     businessDescription:
@@ -27,7 +27,7 @@ const users = [
     email: "ssmith@email.com",
     password: "p123",
     country: "United Kingdom",
-    city: "Birmingham",
+    region: "Birmingham",
     profilePicture: "http://www.url.com",
     businessName: "Sam Business",
     businessDescription:
@@ -48,7 +48,7 @@ const users = [
     email: "dderek@email.com",
     password: "p123",
     country: "United Kingdom",
-    city: "Birmingham",
+    region: "Birmingham",
     profilePicture: "http://www.url.com",
     socialMedia: "instagram",
     age: 39,

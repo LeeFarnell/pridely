@@ -12,7 +12,7 @@ const signup = async (_, { input }) => {
     email,
     password,
     country,
-    city,
+    region,
     businessName,
     businessType,
     profilePicture,
@@ -35,7 +35,7 @@ const signup = async (_, { input }) => {
       email,
       password,
       country,
-      city,
+      region,
       businessName,
       businessType,
       socialMedia,
@@ -60,7 +60,7 @@ const signup = async (_, { input }) => {
       type: user.type,
       email: user.email,
       country: user.country,
-      city: user.city,
+      region: user.region,
       createdAt: user.createdAt,
     });
 

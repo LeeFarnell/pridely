@@ -37,7 +37,7 @@ const userSchema = {
     type: String,
     required: true,
   },
-  city: {
+  region: {
     type: String,
     required: true,
   },
