@@ -14,9 +14,6 @@ const Mutation = gql`
     password: String!
     country: String!
     region: String!
-    businessName: String
-    businessType: String
-    socialMedia: String
     profilePicture: String
     age: Int
     gender: String

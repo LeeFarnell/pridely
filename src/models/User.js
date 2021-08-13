@@ -49,7 +49,7 @@ const userSchema = {
     // ref: "BusinessType",
     type: String,
     enum: ["Art", "Photography", "Music"],
-    required: true,
+    required: false,
   },
   businessDescription: {
     type: String,
