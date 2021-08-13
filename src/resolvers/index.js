@@ -17,6 +17,7 @@ const addRatingToUser = require("./addRatingToUser");
 const getMessages = require("./getMessages");
 const createMessage = require("./createMessage");
 const deleteMessages = require("./deleteMessages");
+const editBusinessUser = require("./editBusinessUser");
 
 const resolvers = {
   Query: {
@@ -31,6 +32,7 @@ const resolvers = {
     login,
     signup,
     editUser,
+    editBusinessUser,
     deleteUser,
     editPost,
     createPost,

@@ -40,6 +40,13 @@ const Mutation = gql`
     pronouns: String
   }
 
+  input editBusinessUserInput {
+    businessName: String!
+    businessType: String!
+    businessDescription: String!
+    socialMedia: [String!]
+  }
+
   input EditPostInput {
     title: String!
     subtitle: String!
@@ -82,6 +89,7 @@ const Mutation = gql`
     login(input: LoginInput): Auth
     signup(input: SignupInput): Auth
     editUser(input: EditUserInput): Auth
+    editBusinessUser(input: editBusinessUserInput): Auth
     deleteUser(userId: ID!): Auth
     createPost(input: CreatePostInput): Post
     editPost(input: EditPostInput): Post

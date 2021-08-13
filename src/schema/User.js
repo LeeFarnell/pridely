@@ -5,7 +5,6 @@ const User = `type User {
   type: String!
   email: String!
   profilePicture: String!
-  password: String
   region: String
   country: String
   businessName: String
