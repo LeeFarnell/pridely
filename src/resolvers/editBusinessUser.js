@@ -5,7 +5,7 @@ const editBusinessUser = async (_, { input }, context) => {
     input;
 
   const user = await User.findByIdAndUpdate(
-    "6116b82778d56945acff72e1",
+    { _id: context.user.id },
     {
       $set: { businessName, businessType, businessDescription, socialMedia },
     },
