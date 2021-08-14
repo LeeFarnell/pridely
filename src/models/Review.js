@@ -14,17 +14,21 @@ const reviewSchema = {
     enum: ["Service One", "Service Two", "Service Three"],
     required: true,
   },
-  categories: [
-    {
-      name:{
-        type:String
-      },
-      rating:{
-        type:Number,
-        default:0
-      }
-    }
-  ],
+  rating: {
+    type: Number,
+    default: 0,
+  },
+  // categories: [
+  //   {
+  //     name:{
+  //       type:String
+  //     },
+  //     rating:{
+  //       type:Number,
+  //       default:0
+  //     }
+  //   }
+  // ],
   writtenBy: {
     type: String,
     required: true,
