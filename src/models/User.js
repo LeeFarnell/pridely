@@ -45,8 +45,11 @@ const userSchema = {
     type: String,
   },
   businessType: {
-    type: Schema.Types.ObjectId,
-    ref: "BusinessType",
+    // type: Schema.Types.ObjectId,
+    // ref: "BusinessType",
+    type: String,
+    enum: ["Art", "Photography", "Music"],
+    required: false,
   },
   businessDescription: {
     type: String,
