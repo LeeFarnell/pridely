@@ -21,6 +21,7 @@ const createReview = require("./createReview");
 const getReviews = require("./allReviews");
 const editBusinessUser = require("./editBusinessUser");
 const allFollowers = require("./allFollowers");
+const followerData = require("./followerData");
 
 const resolvers = {
   Query: {
@@ -32,6 +33,7 @@ const resolvers = {
     getMessages,
     getReviews,
     allFollowers,
+    followerData,
   },
   Mutation: {
     login,
