@@ -20,6 +20,7 @@ const deleteMessages = require("./deleteMessages");
 const createReview = require("./createReview");
 const getReviews = require("./allReviews");
 const editBusinessUser = require("./editBusinessUser");
+const allFollowers = require("./allFollowers");
 
 const resolvers = {
   Query: {
@@ -30,6 +31,7 @@ const resolvers = {
     allCommentsForPost,
     getMessages,
     getReviews,
+    allFollowers,
   },
   Mutation: {
     login,
