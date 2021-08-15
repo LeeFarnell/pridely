@@ -6,7 +6,18 @@ const Post = require("./Post");
 const Comment = require("./Comment");
 const Message = require("./Message");
 const Review = require("./Review");
+const Follower = require("./Follower");
 
-const typeDefs = [Query, User, Post, Comment, Auth, Message, Review, Mutation];
+const typeDefs = [
+  Query,
+  User,
+  Post,
+  Comment,
+  Auth,
+  Message,
+  Review,
+  Follower,
+  Mutation,
+];
 
 module.exports = typeDefs;
