@@ -4,7 +4,6 @@ const signup = require("./signup");
 const users = require("./users");
 const editUser = require("./editUser");
 const deleteUser = require("./deleteUser");
-const allPostsFromUser = require("./allPostsFromUser");
 const allPosts = require("./allPosts");
 const editPost = require("./editPost");
 const createPost = require("./createPost");
@@ -27,7 +26,6 @@ const resolvers = {
   Query: {
     user,
     users,
-    allPostsFromUser,
     allPosts,
     allCommentsForPost,
     getMessages,
