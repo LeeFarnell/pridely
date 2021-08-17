@@ -53,7 +53,8 @@ const init = async () => {
     console.info("Data successfully deleted");
 
     // inserting users into database
-    await User.insertMany(usersData);
+    const promises = usersData.map((user) => User.create(user));
+    await Promise.all(promises);
     console.info("Users successfully Seeded");
 
     // retrieving users from database
