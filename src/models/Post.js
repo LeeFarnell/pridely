@@ -36,7 +36,7 @@ const postSchema = {
     type: String,
   },
   likes: {
-    type: Array,
+    type: Number,
   },
   createdAt: {
     type: Date,

@@ -10,7 +10,8 @@ const Query = gql`
     getReviews: [Review]
     allFollowers: [Follower]
     followerData(followerId: String!): User
-    dashboard(userId: ID!): Dashboard
+    # dashboard(userId: ID!): Dashboard
+    dashboard: Dashboard
   }
 `;
 
