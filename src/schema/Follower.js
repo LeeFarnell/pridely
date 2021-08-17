@@ -1,4 +1,4 @@
-const Follower = ` type Follower {
+const Follower = `type Follower {
   id: ID!
   followerId: String!
   businessId: String!

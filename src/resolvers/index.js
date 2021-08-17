@@ -1,3 +1,5 @@
+const { Follower, Post } = require("../models");
+
 const user = require("./user");
 const login = require("./login");
 const signup = require("./signup");
@@ -21,6 +23,7 @@ const getReviews = require("./allReviews");
 const editBusinessUser = require("./editBusinessUser");
 const allFollowers = require("./allFollowers");
 const followerData = require("./followerData");
+const dashboard = require("./dashboard");
 
 const resolvers = {
   Query: {
@@ -32,6 +35,7 @@ const resolvers = {
     getReviews,
     allFollowers,
     followerData,
+    dashboard,
   },
   Mutation: {
     login,
@@ -49,6 +53,30 @@ const resolvers = {
     createMessage,
     deleteMessages,
     createReview,
+  },
+  Dashboard: {
+    followers: async (parent) => {
+      const followerId = parent.currentUser.id;
+
+      const followersFromDb = await Follower.find({ followerId }).populate(
+        "businessId"
+      );
+
+      const followers = followersFromDb.map((follower) => {
+        return follower.businessId;
+      });
+
+      return followers;
+    },
+  },
+  User: {
+    posts: async (parent) => {
+      const postedBy = parent._id;
+
+      const posts = await Post.find({ postedBy });
+
+      return posts;
+    },
   },
 };
 
