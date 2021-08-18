@@ -1,28 +1,14 @@
 const { User } = require("../models");
 
-const profile = async (_, { userId }, context) => {
-  const { id } = context.user;
+const profile = async (_, { userId }) => {
+  try {
+    const user = await User.findById(userId);
 
-  if (userId) {
-    try {
-      const user = await User.findById(userId);
-
-      return {
-        user: user,
-      };
-    } catch (error) {
-      console.error(error.message);
-    }
-  } else {
-    try {
-      const user = await User.findById(id);
-
-      return {
-        user: user,
-      };
-    } catch (error) {
-      console.error(error.message);
-    }
+    return {
+      user: user,
+    };
+  } catch (error) {
+    console.error(error.message);
   }
 };
 
