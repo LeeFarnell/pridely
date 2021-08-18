@@ -8,6 +8,7 @@ const Message = require("./Message");
 const Review = require("./Review");
 const Follower = require("./Follower");
 const Dashboard = require("./Dashboard");
+const Profile = require("./Profile");
 
 const typeDefs = [
   Query,
@@ -20,6 +21,7 @@ const typeDefs = [
   Follower,
   Mutation,
   Dashboard,
+  Profile,
 ];
 
 module.exports = typeDefs;

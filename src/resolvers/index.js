@@ -24,6 +24,7 @@ const editBusinessUser = require("./editBusinessUser");
 const allFollowers = require("./allFollowers");
 const followerData = require("./followerData");
 const dashboard = require("./dashboard");
+const profile = require("./profile");
 
 const resolvers = {
   Query: {
@@ -36,6 +37,7 @@ const resolvers = {
     allFollowers,
     followerData,
     dashboard,
+    profile,
   },
   Mutation: {
     login,
