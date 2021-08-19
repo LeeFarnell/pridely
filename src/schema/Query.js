@@ -11,7 +11,12 @@ const Query = gql`
     followerData(followerId: String!): User
     dashboard: Dashboard
     profile(userId: String): Profile
-    chat(userId: ID): [Message]
+    chat(fromUserId: ID!, toUserId: ID): [Message]
+    businessSearch(
+      businessType: String!
+      country: String
+      region: String
+    ): [User]
   }
 `;
 

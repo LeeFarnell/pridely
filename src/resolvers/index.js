@@ -23,7 +23,8 @@ const followerData = require("./followerData");
 const dashboard = require("./dashboard");
 const profile = require("./profile");
 const chat = require("./chat");
-const { createMessage, messageCreated } = require("./message");
+const { createMessage } = require("./message");
+const businessSearch = require("./businessSearch");
 
 const resolvers = {
   Query: {
@@ -37,6 +38,7 @@ const resolvers = {
     dashboard,
     profile,
     chat,
+    businessSearch,
   },
   Mutation: {
     login,
@@ -78,12 +80,6 @@ const resolvers = {
       const posts = await Post.find({ postedBy });
 
       return posts;
-    },
-  },
-
-  Subscription: {
-    messageCreated: {
-      subscribe: messageCreated,
     },
   },
 };
