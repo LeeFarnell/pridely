@@ -5,21 +5,17 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const messageSchema = {
-  title: {
-    type: String,
-    required: true,
-  },
   message: {
     type: String,
     required: true,
   },
-  currentUser: {
-    type: String,
-    required: true,
+  fromUser: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
   },
-  targetedUser: {
-    type: String,
-    required: true,
+  toUser: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
   },
   createdAt: {
     type: Date,

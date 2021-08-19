@@ -1,12 +1,18 @@
-const Query = `type Query {
-  user: User
-  users: [User]
-  allPostsFromUser: [Post]
-  allPosts: [Post]
-  allCommentsForPost: [Comment]
-  getMessages: [Message]
-  getReviews: [Review]
-  allFollowers: [Follower]
-}`;
+const { gql } = require("apollo-server");
+
+const Query = gql`
+  type Query {
+    user: User
+    users: [User]
+    allPosts(userId: String!): [Post]
+    allCommentsForPost: [Comment]
+    getReviews: [Review]
+    allFollowers: [Follower]
+    followerData(followerId: String!): User
+    dashboard: Dashboard
+    profile(userId: String): Profile
+    chat(userId: ID): [Message]
+  }
+`;
 
 module.exports = Query;

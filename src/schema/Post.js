@@ -7,7 +7,7 @@ const Post = `type Post {
   image: [String]
   badges: String
   url: String
-  likes: [String]
+  likes: Int
   createdAt: String
 }`;
 

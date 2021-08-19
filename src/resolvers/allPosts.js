@@ -1,7 +1,7 @@
 const { Post } = require("../models");
 
-const allPosts = async () => {
-  return await Post.find({});
+const allPosts = async (_, { userId }) => {
+  return await Post.find({ postedBy: userId });
 };
 
 module.exports = allPosts;

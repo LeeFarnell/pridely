@@ -17,6 +17,7 @@ const User = `type User {
   gender: String
   identifyAs: String
   pronouns: String
+  posts: [Post]
 }`;
 
 module.exports = User;

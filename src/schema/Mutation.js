@@ -94,16 +94,15 @@ const Mutation = gql`
     editUser(input: EditUserInput): Auth
     editBusinessUser(input: editBusinessUserInput): Auth
     deleteUser(userId: ID!): Auth
-    createPost(input: CreatePostInput): Post
+    createNewPost(input: CreatePostInput): Post
     editPost(input: EditPostInput): Post
     deletePost(postId: ID!): Post
     createComment(input: CreateCommentInput): Comment
     editComment(input: EditCommentInput): Comment
     deleteComment(commentId: ID!): Comment
     addRatingToUser(input: addRatingToUserInput): Auth
-    createMessage(input: createMessageInput): Message
-    deleteMessages: Message
     createReview(input: CreateReviewInput): User
+    createMessage(fromUser: ID!, toUser: ID!, message: String!): Message
   }
 `;
 

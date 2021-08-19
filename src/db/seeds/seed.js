@@ -53,7 +53,8 @@ const init = async () => {
     console.info("Data successfully deleted");
 
     // inserting users into database
-    await User.insertMany(usersData);
+    const promises = usersData.map((user) => User.create(user));
+    await Promise.all(promises);
     console.info("Users successfully Seeded");
 
     // retrieving users from database
@@ -115,15 +116,51 @@ const init = async () => {
     await Review.insertMany(reviewsToSeed);
     console.info("Reviews successfully seeded");
 
+    const usersMap = [
+      {
+        from: "pparker",
+        to: "ssmith",
+      },
+      {
+        from: "pparker",
+        to: "ssmith",
+      },
+      {
+        from: "pparker",
+        to: "dderek",
+      },
+      {
+        from: "dderek",
+        to: "ssmith",
+      },
+      {
+        from: "alice.green",
+        to: "dderek",
+      },
+    ];
+
     // seeding messages assigning them randomly
     const messagesToSeed = messagesData.map((message, index) => {
+      const { _id: fromUser } = usersFromDb.find(
+        (user) => user.username === usersMap[index].from
+      );
+
+      const { _id: toUser } = usersFromDb.find(
+        (user) => user.username === usersMap[index].to
+      );
       return {
+        fromUser,
+        toUser,
         ...message,
-        currentUser:
-          usersFromDb[Math.floor(Math.random() * usersFromDb.length)]._id,
-        targetedUser:
-          usersFromDb[Math.floor(Math.random() * usersFromDb.length)]._id,
       };
+
+      // //////////////////////////
+      // return {
+      //   ...message,
+      //   fromUser:
+      //     usersFromDb[Math.floor(Math.random() * usersFromDb.length)]._id,
+      //   toUser: usersFromDb[Math.floor(Math.random() * usersFromDb.length)]._id,
+      // };
     });
 
     await Message.insertMany(messagesToSeed);
