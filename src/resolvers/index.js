@@ -82,7 +82,7 @@ const resolvers = {
   },
 
   Subscription: {
-    postCreated: {
+    messageCreated: {
       subscribe: messageCreated,
     },
   },
