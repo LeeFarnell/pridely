@@ -1,9 +1,8 @@
 const Message = `type Message {
-  title: String
-  message: String
-  currentUser: String
-  targetedUser: String
-  createdAt: String
+  id: ID!
+  fromUser: User!
+  toUser: User!
+  message: String!
 }`;
 
 module.exports = Message;
