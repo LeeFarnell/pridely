@@ -8,16 +8,13 @@ const editUser = require("./editUser");
 const deleteUser = require("./deleteUser");
 const allPosts = require("./allPosts");
 const editPost = require("./editPost");
-const createPost = require("./createPost");
+const createNewPost = require("./createNewPost");
 const allCommentsForPost = require("./allCommentsForPost");
 const deletePost = require("./deletePost");
 const createComment = require("./createComment");
 const editComment = require("./editComment");
 const deleteComment = require("./deleteComment");
 const addRatingToUser = require("./addRatingToUser");
-const getMessages = require("./getMessages");
-const createMessage = require("./createMessage");
-const deleteMessages = require("./deleteMessages");
 const createReview = require("./createReview");
 const getReviews = require("./allReviews");
 const editBusinessUser = require("./editBusinessUser");
@@ -25,6 +22,8 @@ const allFollowers = require("./allFollowers");
 const followerData = require("./followerData");
 const dashboard = require("./dashboard");
 const profile = require("./profile");
+const chat = require("./chat");
+const { createMessage, messageCreated } = require("./message");
 
 const resolvers = {
   Query: {
@@ -32,12 +31,12 @@ const resolvers = {
     users,
     allPosts,
     allCommentsForPost,
-    getMessages,
     getReviews,
     allFollowers,
     followerData,
     dashboard,
     profile,
+    chat,
   },
   Mutation: {
     login,
@@ -46,16 +45,16 @@ const resolvers = {
     editBusinessUser,
     deleteUser,
     editPost,
-    createPost,
+    createNewPost,
     deletePost,
     createComment,
     editComment,
     deleteComment,
     addRatingToUser,
     createMessage,
-    deleteMessages,
     createReview,
   },
+
   Dashboard: {
     followers: async (parent) => {
       const followerId = parent.currentUser.id;
@@ -71,6 +70,7 @@ const resolvers = {
       return followers;
     },
   },
+
   User: {
     posts: async (parent) => {
       const postedBy = parent._id;
@@ -78,6 +78,12 @@ const resolvers = {
       const posts = await Post.find({ postedBy });
 
       return posts;
+    },
+  },
+
+  Subscription: {
+    postCreated: {
+      subscribe: messageCreated,
     },
   },
 };
