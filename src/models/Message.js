@@ -13,13 +13,13 @@ const messageSchema = {
     type: String,
     required: true,
   },
-  currentUser: {
-    type: String,
-    required: true,
+  fromUser: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
   },
-  targetedUser: {
-    type: String,
-    required: true,
+  toUser: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
   },
   createdAt: {
     type: Date,
