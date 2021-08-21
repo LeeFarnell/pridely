@@ -26,6 +26,7 @@ const db = mongoose.connection;
 
   const server = new ApolloServer({
     schema,
+    context,
   });
 
   await server.start();

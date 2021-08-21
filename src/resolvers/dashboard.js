@@ -1,6 +1,6 @@
 const { User } = require("../models");
 
-const dashboard = async (_, __, context) => {
+const dashboard = async (_, args, context) => {
   const { id } = context.user;
   try {
     const user = await User.findById(id);

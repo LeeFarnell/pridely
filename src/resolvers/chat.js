@@ -10,6 +10,7 @@ const chat = async (_, { fromUserId, toUserId }) => {
   })
     .populate("fromUser")
     .populate("toUser");
+
   return messages;
 };
 
