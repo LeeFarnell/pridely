@@ -103,7 +103,7 @@ const Mutation = gql`
     editComment(input: EditCommentInput): Comment
     deleteComment(commentId: ID!): Comment
     addRatingToUser(input: addRatingToUserInput): Auth
-    createReview(input: CreateReviewInput): User
+    createReview(input: CreateReviewInput): Review
     createMessage(fromUser: ID!, toUser: ID!, message: String!): Message
   }
 `;
