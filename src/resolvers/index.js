@@ -98,6 +98,12 @@ const resolvers = {
     //     commentPostedBy: commentForPost,
     //   });    },
   },
+
+  Review: {
+    username: async (parent) => {
+      return await User.findById(parent.writtenBy);
+    },
+  },
 };
 
 module.exports = resolvers;
