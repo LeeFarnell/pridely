@@ -1,4 +1,4 @@
-const { Follower, Post } = require("../models");
+const { Follower, Post, PostComment, User } = require("../models");
 
 const user = require("./user");
 const login = require("./login");
@@ -81,6 +81,22 @@ const resolvers = {
 
       return posts;
     },
+  },
+
+  Profile: {
+    comments: async (parent) => {
+      const commentForPost = parent.user._id;
+
+      const comments = await PostComment.find({
+        commentPostedBy: commentForPost,
+      });
+
+      return comments;
+    },
+    // commentBy: async (parent) => {
+    //   const comments = await PostComment.find({
+    //     commentPostedBy: commentForPost,
+    //   });    },
   },
 };
 
