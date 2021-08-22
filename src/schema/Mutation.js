@@ -75,6 +75,7 @@ const Mutation = gql`
 
   input addRatingToUserInput {
     ratings: Int!
+    userId: String
   }
 
   input createMessageInput {
@@ -85,6 +86,7 @@ const Mutation = gql`
   input CreateReviewInput {
     commentBox: String!
     serviceUsed: String!
+    writtenFor: String!
     rating: Int!
   }
 

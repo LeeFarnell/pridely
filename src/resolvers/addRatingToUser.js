@@ -1,19 +1,23 @@
 const { User } = require("../models");
 
 const addRatingToUser = async (_, { input }) => {
-  const { ratings } = input;
+  const { ratings, userId } = input;
 
-  const user = await User.findByIdAndUpdate(
-    "61142f60c6b60f414467d74b",
-    {
-      $push: {
-        ratings: ratings,
+  try {
+    const user = await User.findByIdAndUpdate(
+      { _id: userId },
+      {
+        $push: {
+          ratings: ratings,
+        },
       },
-    },
-    { new: true }
-  );
+      { new: true }
+    );
 
-  return { user };
+    return { user };
+  } catch (error) {
+    console.error(error.message);
+  }
 };
 
 module.exports = addRatingToUser;
