@@ -11,7 +11,7 @@ const createPost = async (_, { input }) => {
     image,
     badges,
     url,
-  });
+  }).populate("likes");
 
   return { newPost };
 };

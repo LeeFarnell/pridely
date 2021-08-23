@@ -79,7 +79,7 @@ const resolvers = {
     posts: async (parent) => {
       const postedBy = parent._id;
 
-      const posts = await Post.find({ postedBy });
+      const posts = await Post.find({ postedBy }).populate("likes");
 
       return posts;
     },
