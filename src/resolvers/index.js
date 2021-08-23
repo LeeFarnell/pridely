@@ -59,14 +59,14 @@ const resolvers = {
 
   Dashboard: {
     followers: async (parent) => {
-      const followerId = parent.currentUser.id;
+      const businessId = parent.currentUser.id;
 
-      const followersFromDb = await Follower.find({ followerId }).populate(
-        "businessId"
+      const followersFromDb = await Follower.find({ businessId }).populate(
+        "followerId"
       );
 
       const followers = followersFromDb.map((follower) => {
-        return follower.businessId;
+        return follower.followerId;
       });
 
       return followers;

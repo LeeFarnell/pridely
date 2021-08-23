@@ -14,14 +14,6 @@ const createReview = async (_, { input }, context) => {
       writtenFor,
     });
 
-    const updatedReviewForUser = await User.findOneAndUpdate(
-      { _id: writtenFor },
-      {
-        $push: { ratings: rating },
-      },
-      { new: true, runValidators: true }
-    );
-
     return newReview;
   } catch (error) {
     console.error(error.message);
