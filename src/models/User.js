@@ -79,11 +79,18 @@ const userSchema = {
   pronouns: { type: String, enum: ["he/him", "she/her", "they/them"] },
 };
 
-const UserSchema = new Schema(userSchema);
+const UserSchema = new Schema(userSchema, {
+  toJSON: { virtuals: true },
+  toObject: { virtuals: true },
+});
 
 UserSchema.pre("save", hashPassword);
 
 UserSchema.methods.validatePassword = validatePassword;
+
+UserSchema.virtual("averageRating").get(function () {
+  return this.ratings.length;
+});
 
 const User = mongoose.model("User", UserSchema);
 
