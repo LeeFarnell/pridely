@@ -25,6 +25,7 @@ const profile = require("./profile");
 const chat = require("./chat");
 const { createMessage } = require("./message");
 const businessSearch = require("./businessSearch");
+const likeAPost = require("./likeAPost");
 
 const resolvers = {
   Query: {
@@ -55,6 +56,7 @@ const resolvers = {
     addRatingToUser,
     createMessage,
     createReview,
+    likeAPost,
   },
 
   Dashboard: {

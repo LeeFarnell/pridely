@@ -105,6 +105,7 @@ const Mutation = gql`
     addRatingToUser(input: addRatingToUserInput): Auth
     createReview(input: CreateReviewInput): Review
     createMessage(fromUser: ID!, toUser: ID!, message: String!): Message
+    likeAPost(postId: ID!): Post
   }
 `;
 
