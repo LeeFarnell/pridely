@@ -1,4 +1,4 @@
-const { Review } = require("../models");
+const { Review, User } = require("../models");
 
 const createReview = async (_, { input }, context) => {
   const { commentBox, serviceUsed, rating, writtenFor } = input;
@@ -14,7 +14,29 @@ const createReview = async (_, { input }, context) => {
       writtenFor,
     });
 
+    const updatedReviewForUser = await User.findOneAndUpdate(
+      { _id: writtenFor },
+      {
+        $push: { ratings: rating },
+      },
+      { new: true, runValidators: true }
+    );
+
     return newReview;
+  } catch (error) {
+    console.error(error.message);
+  }
+
+  try {
+    const updatedReviewForUser = await User.findOneAndUpdate(
+      { _id: writtenFor },
+      {
+        $push: { ratings: rating },
+      },
+      { new: true, runValidators: true }
+    );
+
+    return updatedReviewForUser;
   } catch (error) {
     console.error(error.message);
   }
