@@ -9,7 +9,7 @@ const editPost = async (_, { input }) => {
       $set: { title, subtitle, mainText, image, badges, url },
     },
     { new: true }
-  ).populate("likes");
+  );
 
   return { updatePost };
 };
