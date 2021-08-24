@@ -18,6 +18,7 @@ const User = `type User {
   identifyAs: String
   pronouns: String
   posts: [Post]
+  averageRating: Int
 }`;
 
 module.exports = User;
