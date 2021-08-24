@@ -109,13 +109,13 @@ const userSchema = {
     enum: [
       "Lesbian",
       "Gay",
-      "non-binary",
       "Bisexual",
       "Trans",
       "Queer",
       "Intersex",
       "Asexual",
       "Pansexual",
+      "Straight",
     ],
   },
   pronouns: {
