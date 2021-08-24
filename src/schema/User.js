@@ -10,14 +10,15 @@ const User = `type User {
   businessName: String
   businessType: String
   businessDescription: String
-  socialMedia: String
   ratings: [Int]
+  socialMedia: [String]
   createdAt: String
   age: Int
   gender: String
   identifyAs: String
   pronouns: String
   posts: [Post]
+  averageRating: Int
 }`;
 
 module.exports = User;

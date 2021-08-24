@@ -1,4 +1,4 @@
-const { Follower, Post } = require("../models");
+const { Follower, Post, PostComment, User } = require("../models");
 
 const user = require("./user");
 const login = require("./login");
@@ -23,7 +23,9 @@ const followerData = require("./followerData");
 const dashboard = require("./dashboard");
 const profile = require("./profile");
 const chat = require("./chat");
-const { createMessage, messageCreated } = require("./message");
+const { createMessage } = require("./message");
+const businessSearch = require("./businessSearch");
+const likeAPost = require("./likeAPost");
 
 const resolvers = {
   Query: {
@@ -37,6 +39,7 @@ const resolvers = {
     dashboard,
     profile,
     chat,
+    businessSearch,
   },
   Mutation: {
     login,
@@ -53,18 +56,19 @@ const resolvers = {
     addRatingToUser,
     createMessage,
     createReview,
+    likeAPost,
   },
 
   Dashboard: {
     followers: async (parent) => {
-      const followerId = parent.currentUser.id;
+      const businessId = parent.currentUser.id;
 
-      const followersFromDb = await Follower.find({ followerId }).populate(
-        "businessId"
+      const followersFromDb = await Follower.find({ businessId }).populate(
+        "followerId"
       );
 
       const followers = followersFromDb.map((follower) => {
-        return follower.businessId;
+        return follower.followerId;
       });
 
       return followers;
@@ -75,15 +79,31 @@ const resolvers = {
     posts: async (parent) => {
       const postedBy = parent._id;
 
-      const posts = await Post.find({ postedBy });
+      const posts = await Post.find({ postedBy }).populate("likes");
 
       return posts;
     },
   },
 
-  Subscription: {
-    postCreated: {
-      subscribe: messageCreated,
+  Profile: {
+    comments: async (parent) => {
+      const commentForPost = parent.user._id;
+
+      const comments = await PostComment.find({
+        commentPostedBy: commentForPost,
+      });
+
+      return comments;
+    },
+    // commentBy: async (parent) => {
+    //   const comments = await PostComment.find({
+    //     commentPostedBy: commentForPost,
+    //   });    },
+  },
+
+  Review: {
+    username: async (parent) => {
+      return await User.findById(parent.writtenBy);
     },
   },
 };

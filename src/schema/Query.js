@@ -6,12 +6,17 @@ const Query = gql`
     users: [User]
     allPosts(userId: String!): [Post]
     allCommentsForPost: [Comment]
-    getReviews: [Review]
-    allFollowers: [Follower]
+    getReviews(userId: String!): [Review]
+    allFollowers: [User]
     followerData(followerId: String!): User
     dashboard: Dashboard
     profile(userId: String): Profile
-    chat(userId: ID): [Message]
+    chat(fromUserId: ID!, toUserId: ID): [Message]
+    businessSearch(
+      businessType: String!
+      country: String
+      region: String
+    ): [User]
   }
 `;
 

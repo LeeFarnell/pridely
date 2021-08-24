@@ -1,18 +1,37 @@
-const { Review } = require("../models");
+const { Review, User } = require("../models");
 
 const createReview = async (_, { input }, context) => {
-  const { commentBox, serviceUsed, rating } = input;
+  const { commentBox, serviceUsed, rating, writtenFor } = input;
 
-  const writtenBy = "611586550b349642f23ca9a6";
-  const writtenFor = "611586550b349642f23ca9a4";
+  const writtenBy = context.user.id;
 
-  return await Review.create({
-    commentBox,
-    serviceUsed,
-    rating,
-    writtenBy,
-    writtenFor,
-  });
+  try {
+    const newReview = await Review.create({
+      commentBox,
+      serviceUsed,
+      rating,
+      writtenBy,
+      writtenFor,
+    });
+
+    return newReview;
+  } catch (error) {
+    console.error(error.message);
+  }
+
+  try {
+    const updatedReviewForUser = await User.findOneAndUpdate(
+      { _id: writtenFor },
+      {
+        $push: { ratings: rating },
+      },
+      { new: true, runValidators: true }
+    );
+
+    return updatedReviewForUser;
+  } catch (error) {
+    console.error(error.message);
+  }
 };
 
 module.exports = createReview;

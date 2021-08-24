@@ -1,9 +1,9 @@
 const { Review } = require("../models");
 
-const getReviews = async () => {
+const getReviews = async (_, { userId }, context) => {
   try {
     const reviews = await Review.find({
-      writtenFor: "611586550b349642f23ca9a4",
+      writtenFor: userId,
     });
 
     return reviews;
@@ -13,4 +13,3 @@ const getReviews = async () => {
 };
 
 module.exports = getReviews;
-// TODO: current and targeted users are hardcoded, at a later stage get the current user from the context and the targeted user from somewhere else (event maybe?)

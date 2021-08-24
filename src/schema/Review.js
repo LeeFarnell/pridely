@@ -5,6 +5,7 @@ const Review = `type Review {
   writtenBy: String!,
   writtenFor: String!,
   createdAt: String!,
+  username: User
 }`;
 
 module.exports = Review;

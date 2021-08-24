@@ -35,9 +35,12 @@ const postSchema = {
   url: {
     type: String,
   },
-  likes: {
-    type: Number,
-  },
+  likes: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ],
   createdAt: {
     type: Date,
     default: Date.now(),

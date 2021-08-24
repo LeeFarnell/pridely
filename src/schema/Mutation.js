@@ -75,6 +75,7 @@ const Mutation = gql`
 
   input addRatingToUserInput {
     ratings: Int!
+    userId: String
   }
 
   input createMessageInput {
@@ -85,6 +86,7 @@ const Mutation = gql`
   input CreateReviewInput {
     commentBox: String!
     serviceUsed: String!
+    writtenFor: String!
     rating: Int!
   }
 
@@ -101,8 +103,9 @@ const Mutation = gql`
     editComment(input: EditCommentInput): Comment
     deleteComment(commentId: ID!): Comment
     addRatingToUser(input: addRatingToUserInput): Auth
-    createReview(input: CreateReviewInput): User
+    createReview(input: CreateReviewInput): Review
     createMessage(fromUser: ID!, toUser: ID!, message: String!): Message
+    likeAPost(postId: ID!): Post
   }
 `;
 
