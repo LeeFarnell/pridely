@@ -7,7 +7,7 @@ const Query = gql`
     allPosts(userId: String!): [Post]
     allCommentsForPost: [Comment]
     getReviews(userId: String!): [Review]
-    allFollowers: [Follower]
+    allFollowers: [User]
     followerData(followerId: String!): User
     dashboard: Dashboard
     profile(userId: String): Profile
