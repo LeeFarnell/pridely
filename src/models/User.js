@@ -134,7 +134,13 @@ UserSchema.pre("save", hashPassword);
 UserSchema.methods.validatePassword = validatePassword;
 
 UserSchema.virtual("averageRating").get(function () {
-  return this.ratings.length;
+  const sum = this.ratings.reduce((acc, value) => {
+    return acc + value;
+  }, 0);
+
+  const average = sum / this.ratings.length;
+
+  return average.toFixed(1);
 });
 
 const User = mongoose.model("User", UserSchema);
