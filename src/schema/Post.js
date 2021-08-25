@@ -9,6 +9,7 @@ const Post = `type Post {
   likes: [User]
   url: String
   createdAt: String
+  comments: [Comment]
 }`;
 
 module.exports = Post;

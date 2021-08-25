@@ -1,11 +1,11 @@
-const { Follower, Post, PostComment, User } = require("../models");
+const { Post, PostComment, User } = require("../models");
 
 const user = require("./user");
 const login = require("./login");
 const signup = require("./signup");
 const users = require("./users");
 const editUser = require("./editUser");
-const deleteUser = require("./deleteUser"); 
+const deleteUser = require("./deleteUser");
 const followUser = require("./followUser");
 const allPosts = require("./allPosts");
 const editPost = require("./editPost");
@@ -61,22 +61,6 @@ const resolvers = {
     likeAPost,
   },
 
-  Dashboard: {
-    followers: async (parent) => {
-      const businessId = parent.currentUser.id;
-
-      const followersFromDb = await Follower.find({ businessId }).populate(
-        "followerId"
-      );
-
-      const followers = followersFromDb.map((follower) => {
-        return follower.followerId;
-      });
-
-      return followers;
-    },
-  },
-
   User: {
     posts: async (parent) => {
       const postedBy = parent._id;
@@ -93,14 +77,12 @@ const resolvers = {
 
       const comments = await PostComment.find({
         commentPostedBy: commentForPost,
-      });
+      }).populate("commentPostedBy");
+
+      console.log(comments);
 
       return comments;
     },
-    // commentBy: async (parent) => {
-    //   const comments = await PostComment.find({
-    //     commentPostedBy: commentForPost,
-    //   });    },
   },
 
   Review: {
