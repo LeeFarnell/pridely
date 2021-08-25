@@ -5,7 +5,8 @@ const login = require("./login");
 const signup = require("./signup");
 const users = require("./users");
 const editUser = require("./editUser");
-const deleteUser = require("./deleteUser");
+const deleteUser = require("./deleteUser"); 
+const followUser = require("./followUser");
 const allPosts = require("./allPosts");
 const editPost = require("./editPost");
 const createNewPost = require("./createNewPost");
@@ -47,6 +48,7 @@ const resolvers = {
     editUser,
     editBusinessUser,
     deleteUser,
+    followUser,
     editPost,
     createNewPost,
     deletePost,
