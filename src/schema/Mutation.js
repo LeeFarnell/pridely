@@ -96,6 +96,7 @@ const Mutation = gql`
     editUser(input: EditUserInput): Auth
     editBusinessUser(input: editBusinessUserInput): Auth
     deleteUser(userId: ID!): Auth
+    followUser(userId: ID!): User
     createNewPost(input: CreatePostInput): Post
     editPost(input: EditPostInput): Post
     deletePost(postId: ID!): Post
