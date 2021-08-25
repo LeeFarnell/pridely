@@ -41,7 +41,8 @@ const Mutation = gql`
     businessName: String!
     businessType: String!
     businessDescription: String!
-    socialMedia: [String!]
+    calendlyUsername: String
+    socialMedia: [String]
   }
 
   input EditPostInput {

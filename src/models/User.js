@@ -45,8 +45,6 @@ const userSchema = {
     type: String,
   },
   businessType: {
-    // type: Schema.Types.ObjectId,
-    // ref: "BusinessType",
     type: String,
     enum: [
       "Animation",
@@ -72,6 +70,9 @@ const userSchema = {
   businessDescription: {
     type: String,
   },
+  calendlyUsername: {
+    type: String,
+  },
   socialMedia: {
     type: Array,
   },
@@ -79,11 +80,6 @@ const userSchema = {
     type: String,
     required: true,
   },
-  // rating: {
-  //   type: Number,
-  //   required: false,
-  //   default: 0,
-  // },
   ratings: {
     type: Array,
     required: false,
