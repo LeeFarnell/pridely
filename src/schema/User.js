@@ -10,6 +10,7 @@ const User = `type User {
   businessName: String
   businessType: String
   businessDescription: String
+  calendlyUsername: String
   ratings: [Int]
   socialMedia: [String]
   createdAt: String
