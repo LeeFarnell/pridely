@@ -41,7 +41,8 @@ const Mutation = gql`
     businessName: String!
     businessType: String!
     businessDescription: String!
-    socialMedia: [String!]
+    calendlyUsername: String
+    socialMedia: [String]
   }
 
   input EditPostInput {
@@ -64,7 +65,6 @@ const Mutation = gql`
   }
 
   input CreateCommentInput {
-    commentPostedBy: String!
     commentText: String!
     postId: String!
   }
@@ -96,6 +96,7 @@ const Mutation = gql`
     editUser(input: EditUserInput): Auth
     editBusinessUser(input: editBusinessUserInput): Auth
     deleteUser(userId: ID!): Auth
+    followUser(userId: ID!): Follower
     createNewPost(input: CreatePostInput): Post
     editPost(input: EditPostInput): Post
     deletePost(postId: ID!): Post

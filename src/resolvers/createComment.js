@@ -1,13 +1,13 @@
 const { PostComment } = require("../models");
 
-const createComment = async (_, { input }) => {
-  const { commentPostedBy, postId, commentText, createdAt } = input;
+const createComment = async (_, { input }, context) => {
+  const { id } = context.user;
+  const { postId, commentText } = input;
 
   return await PostComment.create({
-    commentPostedBy,
+    commentPostedBy: id,
     postId,
     commentText,
-    createdAt,
   });
 };
 

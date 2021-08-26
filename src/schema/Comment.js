@@ -1,6 +1,6 @@
 const Comment = `type Comment {
   _id: ID!
-  commentPostedBy: String!
+  commentPostedBy: User
   postId: String!
   commentText: String!
   createdAt: String

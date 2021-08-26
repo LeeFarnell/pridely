@@ -18,7 +18,7 @@ const User = `type User {
   identifyAs: String
   pronouns: String
   posts: [Post]
-  averageRating: Int
+  averageRating: Float
 }`;
 
 module.exports = User;

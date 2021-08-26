@@ -45,13 +45,32 @@ const userSchema = {
     type: String,
   },
   businessType: {
-    // type: Schema.Types.ObjectId,
-    // ref: "BusinessType",
     type: String,
-    enum: ["Art", "Photography", "Music"],
+    enum: [
+      "Animation",
+      "Art",
+      "Graphic Design",
+      "Illustration",
+      "Web Design",
+      "Event Planning",
+      "Music",
+      "Photography",
+      "Film/Video",
+      "Other",
+      "Fashion",
+      "Crafts",
+      "Interior Design",
+      "Product Design",
+      "Dance",
+      "Writing",
+      "Hair/Make Up",
+    ],
     required: false,
   },
   businessDescription: {
+    type: String,
+  },
+  calendlyUsername: {
     type: String,
   },
   socialMedia: {
@@ -61,22 +80,45 @@ const userSchema = {
     type: String,
     required: true,
   },
-  // rating: {
-  //   type: Number,
-  //   required: false,
-  //   default: 0,
-  // },
   ratings: {
     type: Array,
     required: false,
+    default: [0],
   },
   createdAt: {
     type: Date,
   },
   age: { type: Number },
-  gender: { type: String, enum: ["male", "female", "non-binary"] },
-  identifyAs: { type: String, enum: ["male", "female", "non-binary"] },
-  pronouns: { type: String, enum: ["he/him", "she/her", "they/them"] },
+  gender: {
+    type: String,
+    enum: [
+      "Male",
+      "Female",
+      "Non-Binary",
+      "Genderqueer",
+      "Genderfluid",
+      "Omnigender",
+      "Agender",
+    ],
+  },
+  identifyAs: {
+    type: String,
+    enum: [
+      "Lesbian",
+      "Gay",
+      "Bisexual",
+      "Trans",
+      "Queer",
+      "Intersex",
+      "Asexual",
+      "Pansexual",
+      "Straight",
+    ],
+  },
+  pronouns: {
+    type: String,
+    enum: ["He/Him", "She/Her", "They/Them", "Xe/Xim", "Zi/Zir"],
+  },
 };
 
 const UserSchema = new Schema(userSchema, {
@@ -88,8 +130,15 @@ UserSchema.pre("save", hashPassword);
 
 UserSchema.methods.validatePassword = validatePassword;
 
+// virtual schema to return an average of the ratings
 UserSchema.virtual("averageRating").get(function () {
-  return this.ratings.length;
+  const sum = this.ratings.reduce((acc, value) => {
+    return acc + value;
+  }, 0);
+
+  const average = sum / this.ratings.length;
+
+  return average.toFixed(1);
 });
 
 const User = mongoose.model("User", UserSchema);

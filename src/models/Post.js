@@ -6,8 +6,8 @@ const Schema = mongoose.Schema;
 
 const postSchema = {
   postedBy: {
-    type: String,
-    required: true,
+    type: Schema.Types.ObjectId,
+    ref: "User",
   },
   title: {
     type: String,
@@ -39,6 +39,7 @@ const postSchema = {
     {
       type: Schema.Types.ObjectId,
       ref: "User",
+      // default: [0],
     },
   ],
   createdAt: {
