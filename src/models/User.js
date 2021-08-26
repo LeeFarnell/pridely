@@ -83,6 +83,7 @@ const userSchema = {
   ratings: {
     type: Array,
     required: false,
+    default: [0],
   },
   createdAt: {
     type: Date,
@@ -129,6 +130,7 @@ UserSchema.pre("save", hashPassword);
 
 UserSchema.methods.validatePassword = validatePassword;
 
+// virtual schema to return an average of the ratings
 UserSchema.virtual("averageRating").get(function () {
   const sum = this.ratings.reduce((acc, value) => {
     return acc + value;

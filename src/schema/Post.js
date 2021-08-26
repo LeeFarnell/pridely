@@ -1,6 +1,6 @@
 const Post = `type Post {
   _id: ID!
-  postedBy: String
+  postedBy: User
   title: String
   subtitle: String
   mainText: String
