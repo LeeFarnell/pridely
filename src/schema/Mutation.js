@@ -65,7 +65,6 @@ const Mutation = gql`
   }
 
   input CreateCommentInput {
-    commentPostedBy: String!
     commentText: String!
     postId: String!
   }
