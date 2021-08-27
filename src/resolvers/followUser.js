@@ -1,17 +1,17 @@
-const { Follower } = require("../models")
+const { Follower } = require("../models");
 
-const followUser = async (_, {userId}, context) => {
-    const followerId = userId
-    const businessId = context.user.id
-    
-    try {
-        return await Follower.create ({
-            followerId, 
-            businessId,
-        })
-    } catch (error) {
-        console.error(error.message)
-    }
-}
+const followUser = async (_, { userId }, context) => {
+  const followerId = userId;
+  const businessId = context.user.id;
 
-module.exports = followUser
+  try {
+    return await Follower.create({
+      followerId,
+      businessId,
+    });
+  } catch (error) {
+    console.error(error.message);
+  }
+};
+
+module.exports = followUser;
