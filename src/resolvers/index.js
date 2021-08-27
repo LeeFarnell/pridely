@@ -73,15 +73,22 @@ const resolvers = {
 
   Profile: {
     comments: async (parent) => {
-      const commentForPost = parent.user._id;
+      const postCreatedBy = parent.user._id;
 
-      const comments = await PostComment.find({
-        commentPostedBy: commentForPost,
+      const posts = await Post.find({ postedBy: postCreatedBy })
+        .populate("likes")
+        .populate("postedBy")
+        .lean();
+
+      const postsIds = posts.map((post) => {
+        return post._id;
+      });
+
+      const commentsForPosts = await PostComment.find({
+        postId: { $in: postsIds },
       }).populate("commentPostedBy");
 
-      console.log(comments);
-
-      return comments;
+      return commentsForPosts;
     },
   },
 
