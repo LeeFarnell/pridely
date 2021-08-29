@@ -7,7 +7,8 @@ const users = [
     password: "p123",
     country: "United Kingdom",
     region: "Birmingham",
-    profilePicture: "http://www.url.com",
+    profilePicture:
+      "https://images.unsplash.com/photo-1627012441283-79151a20adf6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=702&q=80",
     businessName: "Peter Business",
     businessType: "Art",
     businessDescription:
@@ -29,7 +30,8 @@ const users = [
     password: "p123",
     country: "United Kingdom",
     region: "Birmingham",
-    profilePicture: "http://www.url.com",
+    profilePicture:
+      "https://images.unsplash.com/photo-1627012441283-79151a20adf6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=702&q=80",
     businessName: "Sam Business",
     businessType: "Art",
     businessDescription:
@@ -51,7 +53,8 @@ const users = [
     password: "p123",
     country: "United Kingdom",
     region: "Birmingham",
-    profilePicture: "http://www.url.com",
+    profilePicture:
+      "https://images.unsplash.com/photo-1627012441283-79151a20adf6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=702&q=80",
     socialMedia: "instagram",
     age: 39,
     gender: "Non-Binary",

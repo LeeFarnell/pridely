@@ -7,9 +7,6 @@ const { DB_URL, MONGOOSE_OPTIONS } = require("../../config/config");
 
 // importing models and seed data
 const {
-  BusinessType,
-  City,
-  Country,
   User,
   Follower,
   Post,
@@ -24,7 +21,6 @@ const postCommentsData = require("./data/postComments");
 const postsData = require("./data/posts");
 const reviewsData = require("./data/reviews");
 const usersData = require("./data/users");
-const businessTypeData = require("./data/businessType");
 
 // connect to mongoose database
 mongoose.connect(DB_URL, MONGOOSE_OPTIONS);
@@ -48,8 +44,6 @@ const init = async () => {
     await Follower.deleteMany({});
     await Review.deleteMany({});
     await Message.deleteMany({});
-    await Country.deleteMany({});
-    await BusinessType.deleteMany({});
     console.info("Data successfully deleted");
 
     // inserting users into database
@@ -165,14 +159,6 @@ const init = async () => {
 
     await Message.insertMany(messagesToSeed);
     console.info("Messages successfully seeded");
-
-    // seeding all countries with data from api
-    await Country.insertMany(countriesData);
-    console.info("Countries Successfully Seeded");
-
-    // seeding all business types
-    await BusinessType.insertMany(businessTypeData);
-    console.info("Business Types Successfully Seeded");
 
     // terminating connection to db
     process.exit(0);
