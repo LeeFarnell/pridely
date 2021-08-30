@@ -25,6 +25,7 @@ const messageSchema = {
 
 const MessageSchema = new Schema(messageSchema);
 
+// create a model based on the schema
 const Message = mongoose.model("Message", MessageSchema);
 
 module.exports = Message;

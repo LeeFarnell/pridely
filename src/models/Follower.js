@@ -19,6 +19,7 @@ const followerSchema = {
 
 const FollowerSchema = new Schema(followerSchema);
 
+// create a model based on the schema
 const Follower = mongoose.model("Follower", FollowerSchema);
 
 module.exports = Follower;

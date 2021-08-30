@@ -1,5 +1,6 @@
 const { User } = require("../models");
 
+// add rating to user, data comes from input
 const addRatingToUser = async (_, { input }) => {
   const { ratings, userId } = input;
 

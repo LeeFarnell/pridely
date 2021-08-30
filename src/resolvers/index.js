@@ -61,6 +61,7 @@ const resolvers = {
     likeAPost,
   },
 
+  // User type, finds all posts for user, targets the user from the parent.
   User: {
     posts: async (parent) => {
       const postedBy = parent._id;
@@ -71,19 +72,23 @@ const resolvers = {
     },
   },
 
+  // Profile type resolver
   Profile: {
     comments: async (parent) => {
       const postCreatedBy = parent.user._id;
 
+      // returns a list of posts for the user returned by the parent resolver and populates required data
       const posts = await Post.find({ postedBy: postCreatedBy })
         .populate("likes")
         .populate("postedBy")
         .lean();
 
+      // maps through the above result and returns a list of post id's
       const postsIds = posts.map((post) => {
         return post._id;
       });
 
+      // returns a list of comments for each post that has an id in the postIds array
       const commentsForPosts = await PostComment.find({
         postId: { $in: postsIds },
       }).populate("commentPostedBy");
@@ -92,7 +97,9 @@ const resolvers = {
     },
   },
 
+  // Review type
   Review: {
+    // gets a list of reviews that are written by the user returned by the parent resolver
     username: async (parent) => {
       return await User.findById(parent.writtenBy);
     },

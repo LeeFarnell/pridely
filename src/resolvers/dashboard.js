@@ -42,7 +42,7 @@ const dashboard = async (_, args, context) => {
       postId: { $in: followerPostsIds },
     }).populate("commentPostedBy");
 
-    // flatten the array, spread each post, add comments ass a new entry into the object, return result
+    // iterate through flattened array, spread each post, add comments ass a new entry into the object, return result
     const posts = flattenedFollowersPosts.map((post) => {
       const newPost = { ...post };
 

@@ -126,6 +126,7 @@ const UserSchema = new Schema(userSchema, {
   toObject: { virtuals: true },
 });
 
+// hashing password before storing the user into the database
 UserSchema.pre("save", hashPassword);
 
 UserSchema.methods.validatePassword = validatePassword;
@@ -141,6 +142,7 @@ UserSchema.virtual("averageRating").get(function () {
   return average.toFixed(1);
 });
 
+// create a model based on the schema
 const User = mongoose.model("User", UserSchema);
 
 module.exports = User;

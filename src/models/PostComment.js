@@ -30,6 +30,7 @@ const postCommentSchema = {
 
 const PostCommentSchema = new Schema(postCommentSchema);
 
+// create a model based on the schema
 const PostComment = mongoose.model("PostComment", PostCommentSchema);
 
 module.exports = PostComment;

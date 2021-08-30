@@ -3,11 +3,14 @@ const { AuthenticationError } = require("apollo-server");
 const { User } = require("../models");
 const { tokenise } = require("../utils/tokenise");
 
+// performs the login functionality
 const login = async (_, { input }) => {
   const { email, password } = input;
 
+  // finds a user by email
   const user = await User.findOne({ email });
 
+  // if theres is no user or if the password does not match the email, an error is thrown
   if (!user) {
     throw new AuthenticationError(
       "User does not exist! Please check your credentials and try again!"
@@ -22,6 +25,7 @@ const login = async (_, { input }) => {
     );
   }
 
+  // tokenise the information of the current user and return user and token
   const token = tokenise({
     id: user.id,
     username: user.username,

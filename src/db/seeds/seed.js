@@ -33,10 +33,6 @@ const init = async () => {
       url: "https://countriesnow.space/api/v0.1/countries/flag/unicode",
     };
 
-    // storing the response into a variable
-    const countriesResponse = await axios(countriesConfig);
-    const countriesData = countriesResponse.data.data;
-
     // deleting pre-existent data in the db
     await User.deleteMany({});
     await Post.deleteMany({});
@@ -55,7 +51,7 @@ const init = async () => {
     const usersFromDb = await User.find({});
 
     // seeding posts. assigning them to random user from database
-    const postsToSeed = postsData.map((post, index) => {
+    const postsToSeed = postsData.map((post) => {
       return {
         ...post,
         postedBy:
@@ -70,7 +66,7 @@ const init = async () => {
     const postsFromDb = await Post.find({});
 
     // seeding comments assigning them to random posts from database
-    const commentsToSeed = postCommentsData.map((comment, index) => {
+    const commentsToSeed = postCommentsData.map((comment) => {
       return {
         ...comment,
         commentPostedBy:
@@ -83,7 +79,7 @@ const init = async () => {
     console.info("Comments successfully seeded");
 
     // seeding followers, assigning random followers to random users
-    const followersToSeed = followersData.map((follower, index) => {
+    const followersToSeed = followersData.map((follower) => {
       return {
         ...follower,
         followerId:
@@ -97,7 +93,7 @@ const init = async () => {
     console.info("Followers successfully seeded");
 
     // seeding reviews, assigning random reviews to random users
-    const reviewsToSeed = reviewsData.map((review, index) => {
+    const reviewsToSeed = reviewsData.map((review) => {
       return {
         ...review,
         writtenBy:
@@ -147,14 +143,6 @@ const init = async () => {
         toUser,
         ...message,
       };
-
-      // //////////////////////////
-      // return {
-      //   ...message,
-      //   fromUser:
-      //     usersFromDb[Math.floor(Math.random() * usersFromDb.length)]._id,
-      //   toUser: usersFromDb[Math.floor(Math.random() * usersFromDb.length)]._id,
-      // };
     });
 
     await Message.insertMany(messagesToSeed);

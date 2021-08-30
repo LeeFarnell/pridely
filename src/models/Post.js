@@ -50,6 +50,7 @@ const postSchema = {
 
 const PostSchema = new Schema(postSchema);
 
+// create a model based on the schema
 const Post = mongoose.model("Post", PostSchema);
 
 module.exports = Post;
