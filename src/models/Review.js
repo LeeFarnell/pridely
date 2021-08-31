@@ -18,17 +18,6 @@ const reviewSchema = {
     type: String,
     default: 0,
   },
-  // categories: [
-  //   {
-  //     name:{
-  //       type:String
-  //     },
-  //     rating:{
-  //       type:Number,
-  //       default:0
-  //     }
-  //   }
-  // ],
   writtenBy: {
     type: String,
     required: true,
@@ -45,6 +34,7 @@ const reviewSchema = {
 
 const ReviewSchema = new Schema(reviewSchema);
 
+// create a model based on the schema
 const Review = mongoose.model("Review", ReviewSchema);
 
 module.exports = Review;
